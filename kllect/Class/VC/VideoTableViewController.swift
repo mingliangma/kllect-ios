@@ -90,6 +90,7 @@ class VideoTableViewController: UITableViewController {
 				Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object["title"] as! String, "Url": trackingURL.absoluteString])
 
 				self.present(avPlayerController, animated: true, completion: nil)
+				player.play()
 				
 			}) { (error) in
 				print("can't parse url")
