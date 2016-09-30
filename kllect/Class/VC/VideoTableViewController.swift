@@ -14,7 +14,7 @@ import Crashlytics
 
 class VideoTableViewController: UITableViewController {
 	
-	private let interest: String = "News"
+	private let interest: String = "Smartphones"
 	
 	var articles = [AnyObject]() {
 		didSet {
