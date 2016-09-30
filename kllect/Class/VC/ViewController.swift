@@ -12,16 +12,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let splashGif = UIImage.gifWithName("splash")
         let imageView = UIImageView(image: splashGif)
-        imageView.frame = CGRect(x: 0.0, y: 0.0, width:  UIScreen.mainScreen().bounds.size.width, height:  UIScreen.mainScreen().bounds.size.height)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width:  UIScreen.main.bounds.size.width, height:  UIScreen.main.bounds.size.height)
         
         view.addSubview(imageView)
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(2.4, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: false)
+        var timer = Timer.scheduledTimer(timeInterval: 2.4, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: false)
         // Do any additional setup after loading the view, typically from a nib.
     }
     func update() {
         // Something cool
-        let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("videolistVC") as! VideoListViewController
+        let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "videolistVC") as! VideoListViewController
         self.navigationController!.pushViewController(secondViewController, animated: true)
     }
     override func didReceiveMemoryWarning() {

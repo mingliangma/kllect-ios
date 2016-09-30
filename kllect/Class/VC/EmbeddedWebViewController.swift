@@ -11,10 +11,10 @@ import UIKit
 class EmbeddedWebViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
-    var url:NSURL!
+    var url:URL!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let requestObj = NSURLRequest(URL: url!);
+        let requestObj = URLRequest(url: url! as URL);
         webView.loadRequest(requestObj);
         // Do any additional setup after loading the view.
     }
@@ -23,8 +23,8 @@ class EmbeddedWebViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func clickBack(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func clickBack(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     
