@@ -11,6 +11,5 @@
 
 #import "SHYouTube.h"
 #import "SHYouTubeService.h"
-#import "SDWebImage/UIImageView+WebCache.h"
 
 #endif /* kllect_Bridging_Header_h */
