@@ -387,6 +387,7 @@
 				E6E8318A1CF3519300AA5249 /* Sources */,
 				E6E8318B1CF3519300AA5249 /* Frameworks */,
 				E6E8318C1CF3519300AA5249 /* Resources */,
+				2F9326991D99F1A700D89AA7 /* ShellScript */,
 				0A3E7B8BA122CD84793F2C4A /* [CP] Embed Pods Frameworks */,
 				F24B43D2FA3393CF038327C9 /* [CP] Copy Pods Resources */,
 			);
@@ -512,6 +513,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kllect/Pods-kllect-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2F9326991D99F1A700D89AA7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run d885192ee64692e1382a243d34f9949a3d9252e1 49dbf2136e4ea073388b6c9a1041ad1b7a76a04c8af76acd65e3042d7dbf2818";
 		};
 		F24B43D2FA3393CF038327C9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
