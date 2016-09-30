@@ -87,6 +87,8 @@ class VideoTableViewController: UITableViewController {
 					avPlayerController.allowsPictureInPicturePlayback = true
 				}
 				
+				Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object["title"] as! String, "Url": trackingURL.absoluteString])
+
 				self.present(avPlayerController, animated: true, completion: nil)
 				
 			}) { (error) in
@@ -98,11 +100,10 @@ class VideoTableViewController: UITableViewController {
 			let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 			let articleViewController = storyBoard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
 			articleViewController.url = URL(string: articleURL)!
-//			self.presentViewController(articleViewController, animated: true, completion: nil)
+			Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object["title"] as! String, "Url": trackingURL.absoluteString])
+
 			self.navigationController?.pushViewController(articleViewController, animated: true)
 		}
-		
-		Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object["title"] as! String, "Url": trackingURL.absoluteString])
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
