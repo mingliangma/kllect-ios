@@ -16,40 +16,60 @@ fastlane_version "1.104.0"
 default_platform :ios
 
 platform :ios do
-  before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-    cocoapods
-    
-  end
+	before_all do
+		# ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+		ascii_art(image_path: 'kllect/Assets.xcassets/AppIcon.appiconset/60_3.png', width: 60)
+		cocoapods
+	end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  lane :beta do
-  	xcversion version: "~> 8.0"
-    ensure_git_status_clean
-   	increment_build_number
-    gym(scheme: "kllect",
-		workspace: "kllect.xcworkspace")
-	pilot(distribute_external: false)
-	clean_build_artifacts
-	commit_version_bump
-	push_to_git_remote
-  end
+	lane :test do |options|
+		scan(workspace: "kllect.xcworkspace",
+			 scheme: "kllect",
+			 devices: ['iPhone 6s'],
+			 clean: true,
+			 skip_build: options[:skip_build],
+			 code_coverage: true,
+			 skip_slack: true
+		)
+	end
 
-  after_all do |lane|
-    # This block is called, only if the executed lane was successful
+	lane :build do
+		gym(scheme: "kllect",
+			include_symbols: true,
+			workspace: "kllect.xcworkspace"
+		)
+	end
 
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
-  end
+	desc "Submit a new Beta Build to Apple TestFlight"
+	desc "This will also make sure the profile is up to date"
+	lane :beta do
+		xcversion version: "~> 8.0"
+		ensure_git_status_clean
+		increment_build_number
+		badge
+		build
+		test(skip_build: true)
+		pilot(distribute_external: false)
+		clean_build_artifacts
+		commit_version_bump
+		push_to_git_remote
+		rocket
+	end
 
-  error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
-  end
+	after_all do |lane|
+		# This block is called, only if the executed lane was successful
+
+		# slack(
+		#	 message: "Successfully deployed new App Update."
+		# )
+	end
+
+	error do |lane, exception|
+		# slack(
+		#	 message: exception.message,
+		#	 success: false
+		# )
+	end
 end
 
 
