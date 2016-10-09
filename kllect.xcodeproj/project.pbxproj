@@ -10,6 +10,7 @@
 		2F3676091D986D10002A5B4A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3676081D986D10002A5B4A /* MenuViewController.swift */; };
 		2F8C0E431D7FB6F4006D000F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8C0E421D7FB6F4006D000F /* WebKit.framework */; };
 		2F8C0E451D7FB8AD006D000F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C0E441D7FB8AD006D000F /* ArticleViewController.swift */; };
+		2FC4D4FA1DA1812F00EF5CDD /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4D4F91DA1812F00EF5CDD /* Entities.swift */; };
 		2FE12CCA1D69405C00990A1D /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE12CC91D69405C00990A1D /* VideoTableViewController.swift */; };
 		2FE12CCE1D6D27B700990A1D /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE12CCD1D6D27B700990A1D /* VideoTableViewCell.swift */; };
 		5426D20C1CFF5E1C0043CEB9 /* defaultback.png in Resources */ = {isa = PBXBuildFile; fileRef = 5426D20B1CFF5E1C0043CEB9 /* defaultback.png */; };
@@ -62,6 +63,7 @@
 		2F3676081D986D10002A5B4A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2F8C0E421D7FB6F4006D000F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2F8C0E441D7FB8AD006D000F /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		2FC4D4F91DA1812F00EF5CDD /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		2FE12CC91D69405C00990A1D /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
 		2FE12CCD1D6D27B700990A1D /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		5426D20B1CFF5E1C0043CEB9 /* defaultback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultback.png; path = Resource/defaultback.png; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				2FE12CCD1D6D27B700990A1D /* VideoTableViewCell.swift */,
 				2F8C0E441D7FB8AD006D000F /* ArticleViewController.swift */,
 				2F3676081D986D10002A5B4A /* MenuViewController.swift */,
+				2FC4D4F91DA1812F00EF5CDD /* Entities.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				5443688F1CFF8F8B004476C3 /* InfiniteScroller.swift in Sources */,
 				E6E8320B1CF35AB000AA5249 /* SHYouTubeService.m in Sources */,
 				544368871CFF8F8B004476C3 /* GIFInfinityAnimator.swift in Sources */,
+				2FC4D4FA1DA1812F00EF5CDD /* Entities.swift in Sources */,
 				2FE12CCE1D6D27B700990A1D /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,20 +3,23 @@ PODS:
     - Fabric (~> 1.6.3)
   - Fabric (1.6.9)
   - Kingfisher (3.1.0)
+  - ObjectMapper (2.0.0)
   - Pulley (1.1.0)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
   - Kingfisher (~> 3.0)
+  - ObjectMapper (~> 2.0)
   - Pulley
 
 SPEC CHECKSUMS:
   Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   Kingfisher: 7779f22e977393e9533a89a9685beb8f679d3767
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   Pulley: 85a88e7bfc9c80fe2a618498930059f4835bb2cf
 
-PODFILE CHECKSUM: b141c83b10b8f647ad59333b380b71391baa2ceb
+PODFILE CHECKSUM: e53706ad5fa6407336a7cc79be47734fe70f670b
 
 COCOAPODS: 1.1.0.rc.2
