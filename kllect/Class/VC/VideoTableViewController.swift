@@ -11,22 +11,31 @@ import AVFoundation
 import AVKit
 import Kingfisher
 import Crashlytics
+import ObjectMapper
 
 class VideoTableViewController: UITableViewController {
 	
+	override var prefersStatusBarHidden: Bool {
+		get {
+			return true
+		}
+	}
+	
 	private let interest: String = "Smartphones"
 	
-	var articles = [AnyObject]() {
+	var articles = [Video]() {
 		didSet {
 			if let tableView = self.tableView {
-				tableView.reloadData()
+				DispatchQueue.main.async {
+					tableView.reloadData()
+				}
 			}
 		}
 	}
 	
 	override func viewDidLoad() {
 		self.view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
-		self.getNews()
+		self.showTag(tag: "others")
 	}
 	
     // MARK: - Table view data source
@@ -43,16 +52,26 @@ class VideoTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 	    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
 		
-		let object = self.articles[indexPath.row] as! NSDictionary
-		let strTitle = object["title"] as! String
-		let strSiteName = object["siteNeme"] as! String
-		let imageurl = object["imageUrl"] as! String
+		let video = self.articles[indexPath.row]
+//		let object = self.articles[indexPath.row] as! NSDictionary
+//		let strTitle = object["title"] as! String
+//		let strSiteName = object["siteNeme"] as! String
+//		let imageurl = object["imageUrl"] as! String
 		
-		let imageURL = URL(string: imageurl)!
-		cell.backgroundImage.kf.setImage(with: imageURL)
+//		let imageURL = URL(string: video.imageUrl)!
+		cell.backgroundImage.kf.setImage(with: video.imageUrl, placeholder: nil, options: nil, progressBlock: nil) { (image, error, cache, url) in
+			if let image = image {
+				print(image)
+				print(image.size)
+			}
+		}
+		
+		cell.backgroundImage.layer.cornerRadius = 6
+		
+//		cell.backgroundImage.kf.setImage(with: URL(string: video.imageUrl.absoluteString.replacingOccurrences(of: "mqdefault", with: "hqdefault"))!)
 //		cell.backgroundImage.kf_setImageWithURL(imageURL)
-		cell.titleLabel.text = strTitle
-		cell.sourceLabel.text = strSiteName
+		cell.titleLabel.text = video.title.capitalized
+		cell.sourceLabel.text = video.siteName.uppercased()
 		
 		print(cell)
 
@@ -62,13 +81,14 @@ class VideoTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("selected: \(indexPath)")
 		
-		let object = self.articles[indexPath.row] as! NSDictionary
+//		let object = self.articles[indexPath.row] as! NSDictionary
+		let object = self.articles[indexPath.row]
 		
 		var trackingURL: URL!
 		
-		if let youtubeURL = object["youtubeUrl"] as? String, youtubeURL != "" {
+		if let youtubeURL = object.youtubeUrl {
 			//TODO: Do youtube stuff
-			let youtubeID = getYoutubeID(youtubeURL)
+			let youtubeID = getYoutubeID(youtubeURL.absoluteString)
 			let youtubeVideoUrl = "https://www.youtube.com/embed/" + youtubeID
 			
 			SHYouTube.youtubeInBackground(withYouTubeURL: URL(string: youtubeVideoUrl), completion: { (youtube) in
@@ -87,7 +107,7 @@ class VideoTableViewController: UITableViewController {
 					avPlayerController.allowsPictureInPicturePlayback = true
 				}
 				
-				Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object["title"] as! String, "Url": trackingURL.absoluteString])
+				Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": trackingURL.absoluteString])
 
 				self.present(avPlayerController, animated: true, completion: nil)
 				player.play()
@@ -95,13 +115,13 @@ class VideoTableViewController: UITableViewController {
 			}) { (error) in
 				print("can't parse url")
 			}
-		} else if let articleURL = object["articleUrl"] as? String, articleURL != "" {
+		} else if let articleURL = object.articleUrl {
 			//TODO: Do article stuff
-			trackingURL = URL(string: articleURL)!
+			trackingURL = articleURL
 			let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 			let articleViewController = storyBoard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
-			articleViewController.url = URL(string: articleURL)!
-			Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object["title"] as! String, "Url": trackingURL.absoluteString])
+			articleViewController.url = articleURL
+			Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": trackingURL.absoluteString])
 
 			self.navigationController?.pushViewController(articleViewController, animated: true)
 		}
@@ -109,9 +129,9 @@ class VideoTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row < self.articles.count - 1 {
-			return 200
+			return 288
 		} else {
-			return 268
+			return 356
 		}
 	}
 	
@@ -119,21 +139,32 @@ class VideoTableViewController: UITableViewController {
 		self.navigationController?.isNavigationBarHidden = true
 		self.navigationController?.hidesBarsOnSwipe = false
 		self.navigationController?.isToolbarHidden = true
+		self.automaticallyAdjustsScrollViewInsets = false
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(VideoTableViewController.showVideosForTag(notification:)), name: NSNotification.Name(rawValue: "ShowVideosForTag"), object: nil)
 	}
 	
-	func getNews() {
-		print("getting stuff")
-		let url = URL(string: "http://api.app.kllect.com/articles/tag/smartphones")
+	func showVideosForTag(notification: Notification) {
+		print(notification.userInfo)
+		guard let userInfo = notification.userInfo, let tag = userInfo["Tag"] as? Tag else {
+			return
+		}
+		
+		self.showTag(tag: tag.tagName)
+	}
+	
+	func showTag(tag: TagName) {
+		let url = URL(string: "http://api.app.kllect.com/articles/tag/\(tag)")
 		let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
 			
 			if error == nil {
 				do {
-					print("success")
-					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [AnyObject]
-					self.articles.replaceSubrange(self.articles.startIndex..<self.articles.endIndex, with: jsonData)
+					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
+					self.articles.replaceSubrange(self.articles.startIndex..<self.articles.endIndex, with: Mapper<Video>().mapArray(JSONObject: jsonData["articles"])!)
 					DispatchQueue.main.async {
 						self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
 					}
+					print(self.articles.map{return $0.tags})
 					
 				} catch {
 					// handle error
