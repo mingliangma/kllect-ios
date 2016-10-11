@@ -54,12 +54,6 @@ class VideoTableViewController: UITableViewController {
 	    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
 		
 		let video = self.articles[indexPath.row]
-//		let object = self.articles[indexPath.row] as! NSDictionary
-//		let strTitle = object["title"] as! String
-//		let strSiteName = object["siteNeme"] as! String
-//		let imageurl = object["imageUrl"] as! String
-		
-//		let imageURL = URL(string: video.imageUrl)!
 		cell.backgroundImage.kf.setImage(with: video.imageUrl, placeholder: nil, options: nil, progressBlock: nil) { (image, error, cache, url) in
 			if let image = image {
 				print(image)
@@ -69,8 +63,6 @@ class VideoTableViewController: UITableViewController {
 		
 		cell.backgroundImage.layer.cornerRadius = 6
 		
-//		cell.backgroundImage.kf.setImage(with: URL(string: video.imageUrl.absoluteString.replacingOccurrences(of: "mqdefault", with: "hqdefault"))!)
-//		cell.backgroundImage.kf_setImageWithURL(imageURL)
 		cell.titleLabel.text = video.title.capitalized
 		cell.sourceLabel.text = video.siteName.uppercased()
 		
@@ -82,7 +74,6 @@ class VideoTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("selected: \(indexPath)")
 		
-//		let object = self.articles[indexPath.row] as! NSDictionary
 		let object = self.articles[indexPath.row]
 		
 		var trackingURL: URL!
