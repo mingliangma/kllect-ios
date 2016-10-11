@@ -21,7 +21,7 @@ class VideoTableViewController: UITableViewController {
 		}
 	}
 	
-	private let interest: String = "Smartphones"
+	private var interest: String = "Smartphones"
 	
 	var articles = [Video]() {
 		didSet {
@@ -32,6 +32,8 @@ class VideoTableViewController: UITableViewController {
 			}
 		}
 	}
+	
+	var offset = 0
 	
 	override func viewDidLoad() {
 		self.view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
@@ -45,7 +47,6 @@ class VideoTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		print(self.articles.count)
         return self.articles.count
     }
 
@@ -150,21 +151,31 @@ class VideoTableViewController: UITableViewController {
 			return
 		}
 		
+		self.interest = tag.tagName
+		self.offset = 0
+		self.articles = [Video]()
+		
 		self.showTag(tag: tag.tagName)
 	}
 	
-	func showTag(tag: TagName) {
-		let url = URL(string: "http://api.app.kllect.com/articles/tag/\(tag)")
+	func showTag(tag: TagName, offset: Int = 0) {
+		let url = URL(string: "http://api.app.kllect.com/articles/tag/\(tag)?offset=\(offset)")
 		let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
 			
 			if error == nil {
+				if offset + 10 <= self.offset {
+					return
+				}
 				do {
 					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
-					self.articles.replaceSubrange(self.articles.startIndex..<self.articles.endIndex, with: Mapper<Video>().mapArray(JSONObject: jsonData["articles"])!)
+					let articles = Mapper<Video>().mapArray(JSONObject: jsonData["articles"])!
+					let count = self.articles.count
+					self.articles.append(contentsOf: articles)
+					let indexPaths = (count..<self.articles.count).map{ return IndexPath(row: $0, section: 0) }
+					self.offset = offset + 10
 					DispatchQueue.main.async {
-						self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
+						self.tableView.reloadRows(at: indexPaths, with: .automatic)
 					}
-					print(self.articles.map{return $0.tags})
 					
 				} catch {
 					// handle error
@@ -173,6 +184,10 @@ class VideoTableViewController: UITableViewController {
 			}
 		}
 		task.resume()
+	}
+	
+	func loadNext() {
+		self.showTag(tag: self.interest, offset: self.offset)
 	}
 	
 	func getYoutubeID(_ youtubeUrl : String) -> String{
@@ -194,6 +209,16 @@ class VideoTableViewController: UITableViewController {
 		}
 		
 		return youtubeID
+	}
+	
+	override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		
+		let actualPosition = scrollView.contentOffset.y + scrollView.frame.size.height
+		let contentHeight = scrollView.contentSize.height - self.tableView.frame.size.height
+		
+		if actualPosition >= contentHeight {
+			self.loadNext()
+		}
 	}
 
 }
