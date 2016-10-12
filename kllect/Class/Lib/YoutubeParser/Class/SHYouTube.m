@@ -82,6 +82,8 @@
 {
     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSDictionary *parts = [responseString dictionaryFromQueryString];
+	NSString *length = parts[@"length_seconds"];
+	self.secondsLength = [length integerValue];
     NSString *fmtStreamMapString = parts[@"url_encoded_fmt_stream_map"];
     NSArray *fmtStreamMapArray = [fmtStreamMapString componentsSeparatedByString:@","];
     for (NSString *videoEncodedString in fmtStreamMapArray) {

@@ -30,6 +30,7 @@ typedef void (^SHYouTubeFailure) (NSError *error);
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *mediumURLPath;
 @property (nonatomic, strong) NSString *hd720URLPath;
+@property (nonatomic) NSInteger secondsLength;
 
 /**
  *  @brief Create an instance of this class. Fetch the video informations and parse the informations. The completion and failure block are called in the main thread.

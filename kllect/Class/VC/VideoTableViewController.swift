@@ -33,7 +33,8 @@ class VideoTableViewController: UITableViewController {
 		}
 	}
 	
-	var offset = 0
+	private var nextPage: URL?
+	private var task: URLSessionDataTask?
 	
 	override func viewDidLoad() {
 		self.view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
@@ -64,10 +65,9 @@ class VideoTableViewController: UITableViewController {
 		cell.backgroundImage.layer.cornerRadius = 6
 		
 		cell.titleLabel.text = video.title.capitalized
-		cell.sourceLabel.text = video.siteName.uppercased()
+		cell.sourceLabel.text = "\(video.siteName.uppercased())"
+		cell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(video.secondsLength!))
 		
-		print(cell)
-
         return cell
     }
 	
@@ -78,35 +78,21 @@ class VideoTableViewController: UITableViewController {
 		
 		var trackingURL: URL!
 		
-		if let youtubeURL = object.youtubeUrl {
-			//TODO: Do youtube stuff
-			let youtubeID = getYoutubeID(youtubeURL.absoluteString)
-			let youtubeVideoUrl = "https://www.youtube.com/embed/" + youtubeID
+		if let youtubeURL = object.youtubeVideoURL {
 			
-			SHYouTube.youtubeInBackground(withYouTubeURL: URL(string: youtubeVideoUrl), completion: { (youtube) in
-				
-				guard let youtube = youtube, let youtubeMediumURL = youtube.mediumURLPath, youtubeMediumURL != "" else {
-					return
-				}
-				
-				trackingURL = URL(string: youtubeMediumURL)!
-				
-				let avPlayerController = AVPlayerViewController()
-				let playerItem = AVPlayerItem(url: NSURL(string: youtubeMediumURL)! as URL)
-				let player = AVPlayer(playerItem: playerItem)
-				avPlayerController.player = player
-				if #available(iOS 9.0, *) {
-					avPlayerController.allowsPictureInPicturePlayback = true
-				}
-				
-				Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": trackingURL.absoluteString])
-
-				self.present(avPlayerController, animated: true, completion: nil)
-				player.play()
-				
-			}) { (error) in
-				print("can't parse url")
+			let avPlayerController = AVPlayerViewController()
+			let playerItem = AVPlayerItem(url: youtubeURL)
+			let player = AVPlayer(playerItem: playerItem)
+			avPlayerController.player = player
+			if #available(iOS 9.0, *) {
+				avPlayerController.allowsPictureInPicturePlayback = true
 			}
+			
+			Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": youtubeURL.absoluteString])
+			
+			self.present(avPlayerController, animated: true, completion: nil)
+			player.play()
+			
 		} else if let articleURL = object.articleUrl {
 			//TODO: Do article stuff
 			trackingURL = articleURL
@@ -143,27 +129,59 @@ class VideoTableViewController: UITableViewController {
 		}
 		
 		self.interest = tag.tagName
-		self.offset = 0
+		self.nextPage = nil
 		self.articles = [Video]()
 		
 		self.showTag(tag: tag.tagName)
 	}
 	
-	func showTag(tag: TagName, offset: Int = 0) {
-		let url = URL(string: "http://api.app.kllect.com/articles/tag/\(tag)?offset=\(offset)")
+	func showTag(tag: TagName) {
+		let url = self.nextPage ?? URL(string: "http://api.app.kllect.com/articles/tag/\(tag)")
+		
+		if let _ = self.task {
+			return
+		}
+
 		let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
 			
 			if error == nil {
-				if offset + 10 <= self.offset {
-					return
-				}
 				do {
 					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
-					let articles = Mapper<Video>().mapArray(JSONObject: jsonData["articles"])!
-					let count = self.articles.count
-					self.articles.append(contentsOf: articles)
-					let indexPaths = (count..<self.articles.count).map{ return IndexPath(row: $0, section: 0) }
-					self.offset = offset + 10
+					let page = Mapper<Page>().map(JSON: jsonData)!
+					
+					let group = DispatchGroup()
+					let queue = DispatchQueue(label: "", qos: .userInitiated, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+					
+					page.articles.forEach { video in
+						queue.async(group: group, execute: DispatchWorkItem {
+							group.enter()
+							if let youtubeURL = video.youtubeUrl {
+								let youtubeID = self.getYoutubeID(youtubeURL.absoluteString)
+								let youtubeVideoUrl = "https://www.youtube.com/embed/" + youtubeID
+								
+								SHYouTube.youtubeInBackground(withYouTubeURL: URL(string: youtubeVideoUrl), completion: { (youtube) in
+									
+									guard let youtube = youtube, let youtubeMediumURL = youtube.mediumURLPath, youtubeMediumURL != "" else {
+										return
+									}
+									
+									video.secondsLength = youtube.secondsLength
+									video.youtubeVideoURL = URL(string: youtube.mediumURLPath)!
+									group.leave()
+								}) { (error) in
+									print("can't parse url")
+									group.leave()
+								}
+							}
+						})
+					}
+					
+					group.wait()
+
+					self.articles.append(contentsOf: page.articles)
+					let indexPaths = (page.articleCount..<self.articles.count).map { return IndexPath(row: $0, section: 0) }
+					self.nextPage = URL(string: "http://api.app.kllect.com/\(page.nextPagePath.absoluteString)")!
+					
 					DispatchQueue.main.async {
 						self.tableView.reloadRows(at: indexPaths, with: .automatic)
 					}
@@ -173,12 +191,14 @@ class VideoTableViewController: UITableViewController {
 					
 				}
 			}
+			self.task = nil
 		}
+		self.task = task
 		task.resume()
 	}
 	
 	func loadNext() {
-		self.showTag(tag: self.interest, offset: self.offset)
+		self.showTag(tag: self.interest)
 	}
 	
 	func getYoutubeID(_ youtubeUrl : String) -> String{
@@ -205,11 +225,23 @@ class VideoTableViewController: UITableViewController {
 	override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
 		let actualPosition = scrollView.contentOffset.y + scrollView.frame.size.height
-		let contentHeight = scrollView.contentSize.height - self.tableView.frame.size.height
+		let contentHeight = scrollView.contentSize.height - (self.tableView.frame.size.height * 2)
 		
 		if actualPosition >= contentHeight {
 			self.loadNext()
 		}
+	}
+	
+	func secondsToPreciseTime(seconds: Double) -> String {
+		let formatter = DateComponentsFormatter()
+		formatter.zeroFormattingBehavior = .pad
+		if seconds >= 3600 {
+			formatter.allowedUnits = [.hour, .minute, .second]
+		} else {
+			formatter.allowedUnits = [.minute, .second]
+		}
+		formatter.unitsStyle = .positional
+		return formatter.string(from: seconds)!
 	}
 
 }

@@ -23,6 +23,24 @@ class Tag: Mappable {
 	}
 }
 
+class Page: Mappable {
+	
+	var articles: [Video]!
+	var articleCount: Int!
+	var nextPagePath: URL!
+	
+	required init?(map: Map) {
+		
+	}
+	
+	func mapping(map: Map) {
+		self.articles <- map["articles"]
+		self.articleCount <- map["articleCount"]
+		self.nextPagePath <- (map["nextPagePath"], URLTransform())
+	}
+	
+}
+
 class Video: Mappable {
 	
 	var id: String!
@@ -40,6 +58,8 @@ class Video: Mappable {
 	var interest: String!
 	var tags: [TagName]!
 	var category: String!
+	var secondsLength: Int?
+	var youtubeVideoURL: URL?
 	
 	required init?(map: Map) {
 		

@@ -13,5 +13,6 @@ class VideoTableViewCell: UITableViewCell {
 	@IBOutlet var backgroundImage: UIImageView!
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var sourceLabel: UILabel!
+	@IBOutlet var timeLabel: UILabel!
 
 }
