@@ -65,7 +65,7 @@ class VideoTableViewController: UITableViewController {
 		cell.backgroundImage.layer.cornerRadius = 6
 		
 		cell.titleLabel.text = video.title.capitalized
-		cell.sourceLabel.text = "\(video.siteName.uppercased())"
+		cell.sourceLabel.text = "\(video.publisher.uppercased())"
 		if let length = video.secondsLength {
 			cell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(length))
 		} else {
