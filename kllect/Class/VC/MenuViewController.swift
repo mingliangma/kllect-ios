@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import Pulley
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
@@ -60,6 +61,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		let tag = self.tags[indexPath.row]
 		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowVideosForTag"), object: nil, userInfo: ["Tag": tag])
 		self.tableView.deselectRow(at: indexPath, animated: false)
+		if let drawer = self.parent as? PulleyViewController {
+			drawer.setDrawerPosition(position: .collapsed, animated: true)
+		}
 	}
 	
 	func getTags() {
