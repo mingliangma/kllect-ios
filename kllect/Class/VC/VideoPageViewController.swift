@@ -16,7 +16,7 @@ class VideoPageViewController: UIPageViewController, UIPageViewControllerDelegat
 		}
 	}
 	
-	private var interestsCount: Int = 5
+	private var interestsCount: Int = 1
 	private var interestsIndex: Int = 0
 
     override func viewDidLoad() {
