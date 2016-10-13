@@ -59,7 +59,7 @@ class Video: Mappable {
 	var tags: [TagName]!
 	var category: String!
 	var publisher: String!
-	var secondsLength: Int?
+	var secondsLength: Int!
 	
 	required init?(map: Map) {
 		
@@ -82,5 +82,6 @@ class Video: Mappable {
 		self.tags <- map["tags"]
 		self.category <- map["category"]
 		self.publisher <- map["publisher"]
+		self.secondsLength <- map["duration"]
 	}
 }

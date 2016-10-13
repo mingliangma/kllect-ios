@@ -66,11 +66,7 @@ class VideoTableViewController: UITableViewController {
 		
 		cell.titleLabel.text = video.title.capitalized
 		cell.sourceLabel.text = "\(video.publisher.uppercased())"
-		if let length = video.secondsLength {
-			cell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(length))
-		} else {
-			cell.timeLabel.text = nil
-		}
+		cell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(video.secondsLength))
 		
         return cell
     }
