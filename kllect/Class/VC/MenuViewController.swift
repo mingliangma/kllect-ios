@@ -10,10 +10,11 @@ import UIKit
 import ObjectMapper
 import Pulley
 
-class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PulleyDelegate {
 	
 	@IBOutlet private weak var tableView: UITableView!
 	@IBOutlet private weak var appLogoLabel: UILabel!
+	@IBOutlet private weak var arrowIcon: UIView!
 	
 	private var tags = [Tag]() {
 		didSet {
@@ -33,12 +34,16 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	
 	override func viewWillAppear(_ animated: Bool) {
 		self.getTags()
+		if let drawer = self.parent as? PulleyViewController {
+			drawer.delegate = self
+		}
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	override func viewDidLayoutSubviews() {
+		if let drawer = self.parent as? PulleyViewController {
+			self.drawArrow(view: self.arrowIcon, drawerPosition: drawer.drawerPosition)
+		}
+	}
     
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
@@ -86,6 +91,70 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			}
 		}
 		task.resume()
+	}
+	
+	func drawerPositionDidChange(drawer: PulleyViewController) {
+		self.drawArrow(view: self.arrowIcon, drawerPosition: drawer.drawerPosition)
+	}
+	
+	func drawArrow(view: UIView, drawerPosition: PulleyPosition) {
+		view.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+		
+		let path: UIBezierPath
+		switch drawerPosition {
+		case .collapsed:
+			path = self.pathForUpwardArrow(inView: self.arrowIcon)
+		case .partiallyRevealed:
+			path = self.pathForStraightArrow(inView: self.arrowIcon)
+		case .open:
+			path = self.pathForDownwardArrow(inView: self.arrowIcon)
+		}
+		
+		let shapeLayer = CAShapeLayer()
+		shapeLayer.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+		shapeLayer.lineWidth = 2
+		
+		shapeLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0).cgColor
+		
+		shapeLayer.path = path.cgPath
+		
+		shapeLayer.lineCap = kCALineCapRound
+		shapeLayer.lineJoin = kCALineJoinRound
+		
+		view.layer.addSublayer(shapeLayer)
+	}
+	
+	func pathForUpwardArrow(inView view: UIView) -> UIBezierPath {
+		let center = view.convert(view.center, from: self.view)
+		
+		let path = UIBezierPath()
+		path.move(to: center + CGPoint(x: -10, y: 5))
+		path.addLine(to: center)
+		path.addLine(to: center + CGPoint(x: 10, y: 5))
+		
+		return path
+	}
+	
+	func pathForStraightArrow(inView view: UIView) -> UIBezierPath {
+		let center = view.convert(view.center, from: self.view)
+		
+		let path = UIBezierPath()
+		path.move(to: center + CGPoint(x: -10, y: 0))
+		path.addLine(to: center)
+		path.addLine(to: center + CGPoint(x: 10, y: 0))
+		
+		return path
+	}
+	
+	func pathForDownwardArrow(inView view: UIView) -> UIBezierPath {
+		let center = view.convert(view.center, from: self.view)
+		
+		let path = UIBezierPath()
+		path.move(to: center + CGPoint(x: -10, y: -5))
+		path.addLine(to: center)
+		path.addLine(to: center + CGPoint(x: 10, y: -5))
+		
+		return path
 	}
 	
 }
