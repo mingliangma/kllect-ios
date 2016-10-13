@@ -66,7 +66,11 @@ class VideoTableViewController: UITableViewController {
 		
 		cell.titleLabel.text = video.title.capitalized
 		cell.sourceLabel.text = "\(video.siteName.uppercased())"
-		cell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(video.secondsLength!))
+		if let length = video.secondsLength {
+			cell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(length))
+		} else {
+			cell.timeLabel.text = nil
+		}
 		
         return cell
     }
@@ -78,20 +82,34 @@ class VideoTableViewController: UITableViewController {
 		
 		var trackingURL: URL!
 		
-		if let youtubeURL = object.youtubeVideoURL {
+		
+		if let youtubeURL = object.youtubeUrl {
 			
-			let avPlayerController = AVPlayerViewController()
-			let playerItem = AVPlayerItem(url: youtubeURL)
-			let player = AVPlayer(playerItem: playerItem)
-			avPlayerController.player = player
-			if #available(iOS 9.0, *) {
-				avPlayerController.allowsPictureInPicturePlayback = true
+			let youtubeID = self.getYoutubeID(youtubeURL.absoluteString)
+			let youtubeVideoUrl = "https://www.youtube.com/embed/" + youtubeID
+			
+			SHYouTube.youtubeInBackground(withYouTubeURL: URL(string: youtubeVideoUrl), completion: { (youtube) in
+				
+				guard let youtube = youtube, let youtubeMediumURL = youtube.mediumURLPath, youtubeMediumURL != "" else {
+					return
+				}
+				
+				let avPlayerController = AVPlayerViewController()
+				let playerItem = AVPlayerItem(url: URL(string: youtubeMediumURL)!)
+				let player = AVPlayer(playerItem: playerItem)
+				avPlayerController.player = player
+				if #available(iOS 9.0, *) {
+					avPlayerController.allowsPictureInPicturePlayback = true
+				}
+				
+				Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": youtubeURL.absoluteString])
+				
+				self.present(avPlayerController, animated: true, completion: nil)
+				player.play()
+				
+			}) { (error) in
+				print("can't parse url")
 			}
-			
-			Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": youtubeURL.absoluteString])
-			
-			self.present(avPlayerController, animated: true, completion: nil)
-			player.play()
 			
 		} else if let articleURL = object.articleUrl {
 			//TODO: Do article stuff
@@ -148,35 +166,6 @@ class VideoTableViewController: UITableViewController {
 				do {
 					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
 					let page = Mapper<Page>().map(JSON: jsonData)!
-					
-					let group = DispatchGroup()
-					let queue = DispatchQueue(label: "", qos: .userInitiated, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
-					
-					page.articles.forEach { video in
-						queue.async(group: group, execute: DispatchWorkItem {
-							group.enter()
-							if let youtubeURL = video.youtubeUrl {
-								let youtubeID = self.getYoutubeID(youtubeURL.absoluteString)
-								let youtubeVideoUrl = "https://www.youtube.com/embed/" + youtubeID
-								
-								SHYouTube.youtubeInBackground(withYouTubeURL: URL(string: youtubeVideoUrl), completion: { (youtube) in
-									
-									guard let youtube = youtube, let youtubeMediumURL = youtube.mediumURLPath, youtubeMediumURL != "" else {
-										return
-									}
-									
-									video.secondsLength = youtube.secondsLength
-									video.youtubeVideoURL = URL(string: youtube.mediumURLPath)!
-									group.leave()
-								}) { (error) in
-									print("can't parse url")
-									group.leave()
-								}
-							}
-						})
-					}
-					
-					group.wait()
 
 					self.articles.append(contentsOf: page.articles)
 					let indexPaths = (page.articleCount..<self.articles.count).map { return IndexPath(row: $0, section: 0) }

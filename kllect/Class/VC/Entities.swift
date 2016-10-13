@@ -59,7 +59,6 @@ class Video: Mappable {
 	var tags: [TagName]!
 	var category: String!
 	var secondsLength: Int?
-	var youtubeVideoURL: URL?
 	
 	required init?(map: Map) {
 		
