@@ -163,12 +163,15 @@ class VideoTableViewController: UITableViewController {
 					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
 					let page = Mapper<Page>().map(JSON: jsonData)!
 
+					let count = self.articles.count
 					self.articles.append(contentsOf: page.articles)
-					let indexPaths = (page.articleCount..<self.articles.count).map { return IndexPath(row: $0, section: 0) }
+					let indexPaths = (count..<self.articles.count).map { return IndexPath(row: $0, section: 0) }
 					self.nextPage = URL(string: "http://api.app.kllect.com/\(page.nextPagePath.absoluteString)")!
 					
-					DispatchQueue.main.async {
-						self.tableView.reloadRows(at: indexPaths, with: .automatic)
+					if page.articleCount > 0 {
+						DispatchQueue.main.async {
+							self.tableView.reloadRows(at: indexPaths, with: .automatic)
+						}
 					}
 					
 				} catch {
