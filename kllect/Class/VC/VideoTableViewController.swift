@@ -13,7 +13,10 @@ import Kingfisher
 import Crashlytics
 import ObjectMapper
 
-class VideoTableViewController: UITableViewController {
+class VideoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+	
+	@IBOutlet private weak var tableView: UITableView!
+	@IBOutlet private weak var overlayView: CategoryOverlayView!
 	
 	override var prefersStatusBarHidden: Bool {
 		get {
@@ -43,24 +46,19 @@ class VideoTableViewController: UITableViewController {
 	
     // MARK: - Table view data source
 	
-	override func numberOfSections(in tableView: UITableView) -> Int {
+	func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articles.count
     }
 
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 	    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
 		
 		let video = self.articles[indexPath.row]
-		cell.backgroundImage.kf.setImage(with: video.imageUrl, placeholder: nil, options: nil, progressBlock: nil) { (image, error, cache, url) in
-			if let image = image {
-				print(image)
-				print(image.size)
-			}
-		}
+		cell.backgroundImage.kf.setImage(with: video.imageUrl)
 		
 		cell.backgroundImage.layer.cornerRadius = 6
 		
@@ -71,7 +69,7 @@ class VideoTableViewController: UITableViewController {
         return cell
     }
 	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("selected: \(indexPath)")
 		
 		let object = self.articles[indexPath.row]
@@ -119,7 +117,7 @@ class VideoTableViewController: UITableViewController {
 		}
 	}
 	
-	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row < self.articles.count - 1 {
 			return 288
 		} else {
@@ -134,6 +132,29 @@ class VideoTableViewController: UITableViewController {
 		self.automaticallyAdjustsScrollViewInsets = false
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(VideoTableViewController.showVideosForTag(notification:)), name: NSNotification.Name(rawValue: "ShowVideosForTag"), object: nil)
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		self.overlayView.frame = self.view.bounds
+		self.overlayView.alpha = 0
+		
+		self.view.addSubview(self.overlayView)
+		self.overlayView.category = self.interest
+		
+		UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeCubic, animations: {
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0/4.0, animations: {
+				self.overlayView.alpha = 1
+			})
+			
+			UIView.addKeyframe(withRelativeStartTime: 3.0/4.0, relativeDuration: 1.0/4.0, animations: {
+				self.overlayView.alpha = 0
+			})
+			
+		}, completion: { _ in
+			self.overlayView.removeFromSuperview()
+		})
+		
 	}
 	
 	func showVideosForTag(notification: Notification) {
@@ -210,10 +231,10 @@ class VideoTableViewController: UITableViewController {
 		return youtubeID
 	}
 	
-	override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
 		let actualPosition = scrollView.contentOffset.y + scrollView.frame.size.height
-		let contentHeight = scrollView.contentSize.height - (self.tableView.frame.size.height * 2)
+		let contentHeight = scrollView.contentSize.height - self.tableView.frame.size.height
 		
 		if actualPosition >= contentHeight {
 			self.loadNext()
