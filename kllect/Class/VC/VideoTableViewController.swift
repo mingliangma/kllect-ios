@@ -65,7 +65,7 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 		effectView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60.0)
 		
 		let label = UILabel(frame: UIEdgeInsetsInsetRect(effectView.frame, UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)))
-		label.text = self.interest
+		label.text = self.interest.replacingOccurrences(of: "_", with: " ").capitalized
 		label.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline), size: 30.0)
 		
 		effectView.addSubview(label)
