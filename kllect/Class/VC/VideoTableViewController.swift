@@ -53,6 +53,25 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articles.count
     }
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 60.0
+	}
+		
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let blur = UIBlurEffect(style: .light)
+		
+		let effectView = UIVisualEffectView(effect: blur)
+		effectView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60.0)
+		
+		let label = UILabel(frame: UIEdgeInsetsInsetRect(effectView.frame, UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)))
+		label.text = self.interest
+		label.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline), size: 30.0)
+		
+		effectView.addSubview(label)
+		
+		return effectView
+	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 	    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
