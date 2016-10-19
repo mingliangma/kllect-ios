@@ -311,6 +311,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2Hl-2N-3yl" secondAttribute="trailing" constant="20" symbolic="YES" id="1kO-rK-H09"/>
                             <constraint firstItem="O13-Az-orT" firstAttribute="top" secondItem="dxq-Py-Ztt" secondAttribute="bottom" constant="14" id="2gO-qe-hAn"/>
@@ -326,6 +327,9 @@
                             <constraint firstItem="QHZ-3f-LGu" firstAttribute="top" secondItem="O13-Az-orT" secondAttribute="bottom" id="yfZ-0x-tW1"/>
                             <constraint firstItem="O13-Az-orT" firstAttribute="leading" secondItem="fX4-Lz-OBa" secondAttribute="leading" id="zrp-gi-7N5"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pmq-fv-Ufu" appends="YES" id="z1c-xa-3ff"/>
+                        </connections>
                     </view>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -335,6 +339,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8r2-nV-1lM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="pmq-fv-Ufu">
+                    <connections>
+                        <action selector="handleTapGesture:" destination="jo7-qj-h57" id="UbK-5k-MTq"/>
+                        <outlet property="delegate" destination="jo7-qj-h57" id="Pah-CG-uSW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1187.5" y="-1524.5"/>
         </scene>

@@ -157,4 +157,21 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		return path
 	}
 	
+	@IBAction func handleTapGesture(_ sender: UITapGestureRecognizer) {
+		let location = sender.location(in: self.view)
+		
+		guard let parent = self.parent as? PulleyViewController, location.y < self.tableView.frame.origin.y else {
+			return
+		}
+		
+		switch parent.drawerPosition {
+		case .open:
+			parent.setDrawerPosition(position: .collapsed, animated: true)
+		case .partiallyRevealed:
+			parent.setDrawerPosition(position: .open, animated: true)
+		case .collapsed:
+			parent.setDrawerPosition(position: .open, animated: true)
+		}
+	}
+		
 }
