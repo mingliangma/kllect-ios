@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryOverlayView: UIView {
+class CategoryOverlayView: UIVisualEffectView {
 
 	@IBOutlet private weak var categoryLabel: UILabel!
 	

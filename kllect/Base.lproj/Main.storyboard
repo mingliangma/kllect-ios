@@ -84,30 +84,34 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="overlayView" destination="94M-zG-OzY" id="EMh-dc-XWZ"/>
+                        <outlet property="overlayView" destination="7au-jz-mzK" id="Ckv-q8-vRq"/>
                         <outlet property="tableView" destination="oLy-uO-XOb" id="uYL-nc-cpD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bR7-mV-MDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="94M-zG-OzY" customClass="CategoryOverlayView" customModule="kllect" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="380" height="194"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="7au-jz-mzK" customClass="CategoryOverlayView" customModule="kllect" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoQ-Mj-dek">
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="JoQ-Mj-dek" firstAttribute="centerY" secondItem="94M-zG-OzY" secondAttribute="centerY" id="7d5-OC-cn2"/>
-                        <constraint firstItem="JoQ-Mj-dek" firstAttribute="centerX" secondItem="94M-zG-OzY" secondAttribute="centerX" id="KLw-an-ZQh"/>
-                    </constraints>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="u0w-ML-g5C">
+                        <frame key="frameInset"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoQ-Mj-dek">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="JoQ-Mj-dek" firstAttribute="centerY" secondItem="u0w-ML-g5C" secondAttribute="centerY" id="n9z-1B-rWZ"/>
+                            <constraint firstItem="JoQ-Mj-dek" firstAttribute="centerX" secondItem="u0w-ML-g5C" secondAttribute="centerX" id="v9s-7g-jMj"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
                     <connections>
-                        <outlet property="categoryLabel" destination="JoQ-Mj-dek" id="mFN-GL-iQg"/>
+                        <outlet property="categoryLabel" destination="JoQ-Mj-dek" id="m1H-0m-ggu"/>
                     </connections>
-                </view>
+                </visualEffectView>
             </objects>
             <point key="canvasLocation" x="1173" y="-549"/>
         </scene>
@@ -264,11 +268,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bc0-Np-gWM" id="1OU-kb-KHh">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cg5-fE-Oze">
-                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <frame key="frameInset" minX="15" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
