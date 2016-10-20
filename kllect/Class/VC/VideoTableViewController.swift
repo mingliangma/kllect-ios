@@ -89,6 +89,12 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 			tempCell.backgroundImage.kf.setImage(with: video.imageUrl)
 			
 			tempCell.backgroundImage.layer.cornerRadius = 6
+			let layer = tempCell.backgroundImage.layer
+			
+			layer.masksToBounds = false
+			layer.shadowColor = UIColor.black.cgColor
+			layer.shadowOffset = CGSize(width: 0, height: 0)
+			layer.shadowOpacity = 0.4
 			
 			tempCell.titleLabel.text = video.title.capitalized
 			tempCell.sourceLabel.text = "\(video.publisher.uppercased())"
