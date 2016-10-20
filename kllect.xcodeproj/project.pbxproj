@@ -64,9 +64,9 @@
 
 /* Begin PBXFileReference section */
 		1D849198C808C4AA129FC87D /* Pods-kllect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kllect.release.xcconfig"; path = "Pods/Target Support Files/Pods-kllect/Pods-kllect.release.xcconfig"; sourceTree = "<group>"; };
+		2F079A441DB8419700F49CE3 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		2F3676081D986D10002A5B4A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2F8C0E421D7FB6F4006D000F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		2F8C0E441D7FB8AD006D000F /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2FC4D4F91DA1812F00EF5CDD /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		2FC4D4FB1DA1A90F00EF5CDD /* VideoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPageViewController.swift; sourceTree = "<group>"; };
 		2FE12CC91D69405C00990A1D /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
@@ -348,7 +348,6 @@
 			children = (
 				2FE12CC91D69405C00990A1D /* VideoTableViewController.swift */,
 				2FE12CCD1D6D27B700990A1D /* VideoTableViewCell.swift */,
-				2F8C0E441D7FB8AD006D000F /* ArticleViewController.swift */,
 				2F3676081D986D10002A5B4A /* MenuViewController.swift */,
 				2FC4D4F91DA1812F00EF5CDD /* Entities.swift */,
 				2FC4D4FB1DA1A90F00EF5CDD /* VideoPageViewController.swift */,
@@ -574,7 +573,6 @@
 				544368921CFF8F8B004476C3 /* UIScrollView+Infinity.swift in Sources */,
 				5443688A1CFF8F8B004476C3 /* NormalRefreshAnimator.swift in Sources */,
 				544368821CFF8F8B004476C3 /* ArrowRefreshAnimator.swift in Sources */,
-				2F8C0E451D7FB8AD006D000F /* ArticleViewController.swift in Sources */,
 				E6E831E71CF352AF00AA5249 /* AppDelegate.swift in Sources */,
 				E6E831DE1CF3528300AA5249 /* UIImage+Gif.swift in Sources */,
 				E6E8320A1CF35AB000AA5249 /* SHYouTube.m in Sources */,

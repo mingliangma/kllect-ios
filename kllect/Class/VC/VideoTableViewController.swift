@@ -12,17 +12,13 @@ import AVKit
 import Kingfisher
 import Crashlytics
 import ObjectMapper
+import Pulley
+import SafariServices
 
 class VideoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 	@IBOutlet private weak var tableView: UITableView!
 	@IBOutlet private weak var overlayView: CategoryOverlayView!
-	
-	override var prefersStatusBarHidden: Bool {
-		get {
-			return true
-		}
-	}
 	
 	private var interest: String = "Smartphones"
 	
@@ -152,12 +148,17 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 		} else if let articleURL = object.articleUrl {
 			//TODO: Do article stuff
 			trackingURL = articleURL
-			let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-			let articleViewController = storyBoard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
-			articleViewController.url = articleURL
+			var vc: UIViewController?
+			if #available(iOS 9.0, *) {
+				vc = SFSafariViewController(url: articleURL)
+			} else {
+//				let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//				vc = storyBoard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
+//				articleViewController.url = articleURL
+			}
 			Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": trackingURL.absoluteString])
 
-			self.navigationController?.pushViewController(articleViewController, animated: true)
+			self.navigationController?.pushViewController(vc!, animated: true)
 		}
 	}
 	
@@ -298,5 +299,5 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 		formatter.unitsStyle = .positional
 		return formatter.string(from: seconds)!
 	}
-
+	
 }

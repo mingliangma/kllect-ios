@@ -10,12 +10,6 @@ import UIKit
 
 class VideoPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 	
-	override var prefersStatusBarHidden: Bool {
-		get {
-			return true
-		}
-	}
-	
 	private var interestsCount: Int = 1
 	private var interestsIndex: Int = 0
 
