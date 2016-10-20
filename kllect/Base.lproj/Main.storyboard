@@ -74,6 +74,30 @@
                                             <outlet property="titleLabel" destination="p75-CO-Vsl" id="FaH-KR-eJz"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="60" id="rix-gq-ZW3" customClass="HeaderTableViewCell" customModule="kllect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="316" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rix-gq-ZW3" id="fCj-OL-Q4i">
+                                            <frame key="frameInset" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.89999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-2Z-Hxx">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="TU2-2Z-Hxx" firstAttribute="centerY" secondItem="fCj-OL-Q4i" secondAttribute="centerY" constant="10" id="AiZ-HL-r3D"/>
+                                                <constraint firstItem="TU2-2Z-Hxx" firstAttribute="leading" secondItem="fCj-OL-Q4i" secondAttribute="leadingMargin" id="QkL-ol-4ze"/>
+                                                <constraint firstItem="TU2-2Z-Hxx" firstAttribute="trailing" secondItem="fCj-OL-Q4i" secondAttribute="trailingMargin" id="s4c-VZ-26l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="TU2-2Z-Hxx" id="KF8-5U-AxX"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="o7H-Wv-Y1k" id="yCx-1Y-Rzp"/>

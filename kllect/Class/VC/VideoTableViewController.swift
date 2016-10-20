@@ -54,38 +54,50 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
         return self.articles.count
     }
 	
-	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 60.0
-	}
-		
-	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let blur = UIBlurEffect(style: .light)
-		
-		let effectView = UIVisualEffectView(effect: blur)
-		effectView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60.0)
-		
-		let label = UILabel(frame: UIEdgeInsetsInsetRect(effectView.frame, UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)))
-		label.text = self.interest.replacingOccurrences(of: "_", with: " ").capitalized
-		label.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline), size: 30.0)
-		
-		effectView.addSubview(label)
-		
-		return effectView
-	}
+//	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//		return 60.0
+//	}
+//		
+//	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//		let blur = UIBlurEffect(style: .light)
+//		
+//		let effectView = UIVisualEffectView(effect: blur)
+//		effectView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60.0)
+//		
+//		let label = UILabel(frame: UIEdgeInsetsInsetRect(effectView.frame, UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)))
+//		label.text = self.interest.replacingOccurrences(of: "_", with: " ").capitalized
+//		label.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline), size: 30.0)
+//		
+//		effectView.addSubview(label)
+//		
+//		return effectView
+//	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-	    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
+		let cell: UITableViewCell
+		if indexPath.row == 0 {
+			let tempCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as! HeaderTableViewCell
+			
+			tempCell.titleLabel.text = self.interest.replacingOccurrences(of: "_", with: " ").capitalized
+			tempCell.backgroundColor = UIColor.white
+			
+			cell = tempCell
+		} else {
+			let tempCell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
+			
+			let video = self.articles[indexPath.row]
+			tempCell.backgroundImage.kf.setImage(with: video.imageUrl)
+			
+			tempCell.backgroundImage.layer.cornerRadius = 6
+			
+			tempCell.titleLabel.text = video.title.capitalized
+			tempCell.sourceLabel.text = "\(video.publisher.uppercased())"
+			tempCell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(video.secondsLength))
+			
+			cell = tempCell
+		}
 		
-		let video = self.articles[indexPath.row]
-		cell.backgroundImage.kf.setImage(with: video.imageUrl)
-		
-		cell.backgroundImage.layer.cornerRadius = 6
-		
-		cell.titleLabel.text = video.title.capitalized
-		cell.sourceLabel.text = "\(video.publisher.uppercased())"
-		cell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(video.secondsLength))
-		
-        return cell
+		return cell
     }
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,7 +149,9 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row < self.articles.count - 1 {
+		if indexPath.row == 0 {
+			return 80
+		} else if indexPath.row < self.articles.count - 1 {
 			return 288
 		} else {
 			return 356
