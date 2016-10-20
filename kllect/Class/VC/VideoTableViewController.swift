@@ -96,6 +96,13 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 			layer.shadowOffset = CGSize(width: 0, height: 0)
 			layer.shadowOpacity = 0.4
 			
+			let gradientLayer = CAGradientLayer()
+			gradientLayer.frame = tempCell.bounds
+			gradientLayer.colors = [UIColor.white.cgColor, UIColor(hex: 0xf8f8f8).cgColor]
+			gradientLayer.locations = [0.0, 1.0]
+			
+			tempCell.contentView.layer.insertSublayer(gradientLayer, at: 0)
+			
 			tempCell.titleLabel.text = video.title.capitalized
 			tempCell.sourceLabel.text = "\(video.publisher.uppercased())"
 			tempCell.timeLabel.text = self.secondsToPreciseTime(seconds: Double(video.secondsLength))
