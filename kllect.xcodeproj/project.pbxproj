@@ -29,25 +29,6 @@
 		2FF4F0C31DAF114E00E9832F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4F0C21DAF114E00E9832F /* Extensions.swift */; };
 		2FF4F0C51DB19EC400E9832F /* CategoryOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4F0C41DB19EC400E9832F /* CategoryOverlayView.swift */; };
 		5426D20C1CFF5E1C0043CEB9 /* defaultback.png in Resources */ = {isa = PBXBuildFile; fileRef = 5426D20B1CFF5E1C0043CEB9 /* defaultback.png */; };
-		544368821CFF8F8B004476C3 /* ArrowRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368671CFF8F8B004476C3 /* ArrowRefreshAnimator.swift */; };
-		544368831CFF8F8B004476C3 /* CircleInfinityAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368691CFF8F8B004476C3 /* CircleInfinityAnimator.swift */; };
-		544368841CFF8F8B004476C3 /* CircleRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443686A1CFF8F8B004476C3 /* CircleRefreshAnimator.swift */; };
-		544368851CFF8F8B004476C3 /* DefaultInfinityAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443686C1CFF8F8B004476C3 /* DefaultInfinityAnimator.swift */; };
-		544368861CFF8F8B004476C3 /* DefaultRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443686D1CFF8F8B004476C3 /* DefaultRefreshAnimator.swift */; };
-		544368871CFF8F8B004476C3 /* GIFInfinityAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443686F1CFF8F8B004476C3 /* GIFInfinityAnimator.swift */; };
-		544368881CFF8F8B004476C3 /* GIFRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368701CFF8F8B004476C3 /* GIFRefreshAnimator.swift */; };
-		544368891CFF8F8B004476C3 /* NormalInfinityAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368721CFF8F8B004476C3 /* NormalInfinityAnimator.swift */; };
-		5443688A1CFF8F8B004476C3 /* NormalRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368731CFF8F8B004476C3 /* NormalRefreshAnimator.swift */; };
-		5443688B1CFF8F8B004476C3 /* SnakeInfinityAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368751CFF8F8B004476C3 /* SnakeInfinityAnimator.swift */; };
-		5443688C1CFF8F8B004476C3 /* SnakeRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368761CFF8F8B004476C3 /* SnakeRefreshAnimator.swift */; };
-		5443688D1CFF8F8B004476C3 /* SparkInfinityAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368781CFF8F8B004476C3 /* SparkInfinityAnimator.swift */; };
-		5443688E1CFF8F8B004476C3 /* SparkRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368791CFF8F8B004476C3 /* SparkRefreshAnimator.swift */; };
-		5443688F1CFF8F8B004476C3 /* InfiniteScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443687A1CFF8F8B004476C3 /* InfiniteScroller.swift */; };
-		544368901CFF8F8B004476C3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5443687C1CFF8F8B004476C3 /* Info.plist */; };
-		544368911CFF8F8B004476C3 /* PullToRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443687D1CFF8F8B004476C3 /* PullToRefresher.swift */; };
-		544368921CFF8F8B004476C3 /* UIScrollView+Infinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443687E1CFF8F8B004476C3 /* UIScrollView+Infinity.swift */; };
-		544368931CFF8F8B004476C3 /* InfinityCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368801CFF8F8B004476C3 /* InfinityCollectionViewController.swift */; };
-		544368941CFF8F8B004476C3 /* InfinityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544368811CFF8F8B004476C3 /* InfinityTableViewController.swift */; };
 		C7497EC17DDC02D0C17F31AC /* Pods_kllect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB36E7A03C42AF5115188843 /* Pods_kllect.framework */; };
 		E6E831971CF3519300AA5249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E831951CF3519300AA5249 /* Main.storyboard */; };
 		E6E831991CF3519300AA5249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6E831981CF3519300AA5249 /* Assets.xcassets */; };
@@ -97,26 +78,6 @@
 		2FF4F0C21DAF114E00E9832F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2FF4F0C41DB19EC400E9832F /* CategoryOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryOverlayView.swift; sourceTree = "<group>"; };
 		5426D20B1CFF5E1C0043CEB9 /* defaultback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultback.png; path = Resource/defaultback.png; sourceTree = "<group>"; };
-		544368671CFF8F8B004476C3 /* ArrowRefreshAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowRefreshAnimator.swift; sourceTree = "<group>"; };
-		544368691CFF8F8B004476C3 /* CircleInfinityAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleInfinityAnimator.swift; sourceTree = "<group>"; };
-		5443686A1CFF8F8B004476C3 /* CircleRefreshAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleRefreshAnimator.swift; sourceTree = "<group>"; };
-		5443686C1CFF8F8B004476C3 /* DefaultInfinityAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultInfinityAnimator.swift; sourceTree = "<group>"; };
-		5443686D1CFF8F8B004476C3 /* DefaultRefreshAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRefreshAnimator.swift; sourceTree = "<group>"; };
-		5443686F1CFF8F8B004476C3 /* GIFInfinityAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFInfinityAnimator.swift; sourceTree = "<group>"; };
-		544368701CFF8F8B004476C3 /* GIFRefreshAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFRefreshAnimator.swift; sourceTree = "<group>"; };
-		544368721CFF8F8B004476C3 /* NormalInfinityAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalInfinityAnimator.swift; sourceTree = "<group>"; };
-		544368731CFF8F8B004476C3 /* NormalRefreshAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalRefreshAnimator.swift; sourceTree = "<group>"; };
-		544368751CFF8F8B004476C3 /* SnakeInfinityAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeInfinityAnimator.swift; sourceTree = "<group>"; };
-		544368761CFF8F8B004476C3 /* SnakeRefreshAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeRefreshAnimator.swift; sourceTree = "<group>"; };
-		544368781CFF8F8B004476C3 /* SparkInfinityAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkInfinityAnimator.swift; sourceTree = "<group>"; };
-		544368791CFF8F8B004476C3 /* SparkRefreshAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkRefreshAnimator.swift; sourceTree = "<group>"; };
-		5443687A1CFF8F8B004476C3 /* InfiniteScroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScroller.swift; sourceTree = "<group>"; };
-		5443687B1CFF8F8B004476C3 /* Infinity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infinity.h; sourceTree = "<group>"; };
-		5443687C1CFF8F8B004476C3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5443687D1CFF8F8B004476C3 /* PullToRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefresher.swift; sourceTree = "<group>"; };
-		5443687E1CFF8F8B004476C3 /* UIScrollView+Infinity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Infinity.swift"; sourceTree = "<group>"; };
-		544368801CFF8F8B004476C3 /* InfinityCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfinityCollectionViewController.swift; sourceTree = "<group>"; };
-		544368811CFF8F8B004476C3 /* InfinityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfinityTableViewController.swift; sourceTree = "<group>"; };
 		9859ED54FBE76C1803AE2653 /* Pods-kllect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kllect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kllect/Pods-kllect.debug.xcconfig"; sourceTree = "<group>"; };
 		CB36E7A03C42AF5115188843 /* Pods_kllect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kllect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E8318E1CF3519300AA5249 /* kllect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kllect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,105 +166,6 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		544368641CFF8F8B004476C3 /* Infinity */ = {
-			isa = PBXGroup;
-			children = (
-				544368651CFF8F8B004476C3 /* controls */,
-				5443687A1CFF8F8B004476C3 /* InfiniteScroller.swift */,
-				5443687B1CFF8F8B004476C3 /* Infinity.h */,
-				5443687C1CFF8F8B004476C3 /* Info.plist */,
-				5443687D1CFF8F8B004476C3 /* PullToRefresher.swift */,
-				5443687E1CFF8F8B004476C3 /* UIScrollView+Infinity.swift */,
-				5443687F1CFF8F8B004476C3 /* ViewControllers */,
-			);
-			path = Infinity;
-			sourceTree = "<group>";
-		};
-		544368651CFF8F8B004476C3 /* controls */ = {
-			isa = PBXGroup;
-			children = (
-				544368661CFF8F8B004476C3 /* arrow */,
-				544368681CFF8F8B004476C3 /* circle */,
-				5443686B1CFF8F8B004476C3 /* default */,
-				5443686E1CFF8F8B004476C3 /* gif */,
-				544368711CFF8F8B004476C3 /* normal */,
-				544368741CFF8F8B004476C3 /* snake */,
-				544368771CFF8F8B004476C3 /* spark */,
-			);
-			path = controls;
-			sourceTree = "<group>";
-		};
-		544368661CFF8F8B004476C3 /* arrow */ = {
-			isa = PBXGroup;
-			children = (
-				544368671CFF8F8B004476C3 /* ArrowRefreshAnimator.swift */,
-			);
-			path = arrow;
-			sourceTree = "<group>";
-		};
-		544368681CFF8F8B004476C3 /* circle */ = {
-			isa = PBXGroup;
-			children = (
-				544368691CFF8F8B004476C3 /* CircleInfinityAnimator.swift */,
-				5443686A1CFF8F8B004476C3 /* CircleRefreshAnimator.swift */,
-			);
-			path = circle;
-			sourceTree = "<group>";
-		};
-		5443686B1CFF8F8B004476C3 /* default */ = {
-			isa = PBXGroup;
-			children = (
-				5443686C1CFF8F8B004476C3 /* DefaultInfinityAnimator.swift */,
-				5443686D1CFF8F8B004476C3 /* DefaultRefreshAnimator.swift */,
-			);
-			path = default;
-			sourceTree = "<group>";
-		};
-		5443686E1CFF8F8B004476C3 /* gif */ = {
-			isa = PBXGroup;
-			children = (
-				5443686F1CFF8F8B004476C3 /* GIFInfinityAnimator.swift */,
-				544368701CFF8F8B004476C3 /* GIFRefreshAnimator.swift */,
-			);
-			path = gif;
-			sourceTree = "<group>";
-		};
-		544368711CFF8F8B004476C3 /* normal */ = {
-			isa = PBXGroup;
-			children = (
-				544368721CFF8F8B004476C3 /* NormalInfinityAnimator.swift */,
-				544368731CFF8F8B004476C3 /* NormalRefreshAnimator.swift */,
-			);
-			path = normal;
-			sourceTree = "<group>";
-		};
-		544368741CFF8F8B004476C3 /* snake */ = {
-			isa = PBXGroup;
-			children = (
-				544368751CFF8F8B004476C3 /* SnakeInfinityAnimator.swift */,
-				544368761CFF8F8B004476C3 /* SnakeRefreshAnimator.swift */,
-			);
-			path = snake;
-			sourceTree = "<group>";
-		};
-		544368771CFF8F8B004476C3 /* spark */ = {
-			isa = PBXGroup;
-			children = (
-				544368781CFF8F8B004476C3 /* SparkInfinityAnimator.swift */,
-				544368791CFF8F8B004476C3 /* SparkRefreshAnimator.swift */,
-			);
-			path = spark;
-			sourceTree = "<group>";
-		};
-		5443687F1CFF8F8B004476C3 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				544368801CFF8F8B004476C3 /* InfinityCollectionViewController.swift */,
-				544368811CFF8F8B004476C3 /* InfinityTableViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		E6E831851CF3519300AA5249 = {
 			isa = PBXGroup;
 			children = (
@@ -363,7 +225,6 @@
 		E6E831CC1CF3528300AA5249 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				544368641CFF8F8B004476C3 /* Infinity */,
 				E6E831CD1CF3528300AA5249 /* SwiftGifCommon */,
 				E6E831CF1CF3528300AA5249 /* YoutubeParser */,
 			);
@@ -532,7 +393,6 @@
 				2F079A5C1DBCE82D00F49CE3 /* Colfax-MediumItalic.otf in Resources */,
 				2F079A581DBCE82D00F49CE3 /* Colfax-BoldItalic.otf in Resources */,
 				2F079A591DBCE82D00F49CE3 /* Colfax-Light.otf in Resources */,
-				544368901CFF8F8B004476C3 /* Info.plist in Resources */,
 				2F079A5B1DBCE82D00F49CE3 /* Colfax-Medium.otf in Resources */,
 				2F079A5E1DBCE82D00F49CE3 /* Colfax-RegularItalic.otf in Resources */,
 				2F079A561DBCE82D00F49CE3 /* Colfax-BlackItalic.otf in Resources */,
@@ -618,36 +478,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5443688C1CFF8F8B004476C3 /* SnakeRefreshAnimator.swift in Sources */,
 				E6E832091CF35AB000AA5249 /* NSURLRequest+SHYouTubeHelper.m in Sources */,
 				E6E832081CF35AB000AA5249 /* NSString+SHYouTubeHelper.m in Sources */,
-				5443688E1CFF8F8B004476C3 /* SparkRefreshAnimator.swift in Sources */,
-				544368851CFF8F8B004476C3 /* DefaultInfinityAnimator.swift in Sources */,
-				544368831CFF8F8B004476C3 /* CircleInfinityAnimator.swift in Sources */,
-				544368861CFF8F8B004476C3 /* DefaultRefreshAnimator.swift in Sources */,
 				2F3676091D986D10002A5B4A /* MenuViewController.swift in Sources */,
-				544368921CFF8F8B004476C3 /* UIScrollView+Infinity.swift in Sources */,
-				5443688A1CFF8F8B004476C3 /* NormalRefreshAnimator.swift in Sources */,
-				544368821CFF8F8B004476C3 /* ArrowRefreshAnimator.swift in Sources */,
 				E6E831E71CF352AF00AA5249 /* AppDelegate.swift in Sources */,
 				E6E831DE1CF3528300AA5249 /* UIImage+Gif.swift in Sources */,
 				E6E8320A1CF35AB000AA5249 /* SHYouTube.m in Sources */,
 				2FF4F0C51DB19EC400E9832F /* CategoryOverlayView.swift in Sources */,
 				2F079A451DB8419700F49CE3 /* HeaderTableViewCell.swift in Sources */,
 				2FC4D4FC1DA1A90F00EF5CDD /* VideoPageViewController.swift in Sources */,
-				5443688B1CFF8F8B004476C3 /* SnakeInfinityAnimator.swift in Sources */,
-				544368931CFF8F8B004476C3 /* InfinityCollectionViewController.swift in Sources */,
-				544368881CFF8F8B004476C3 /* GIFRefreshAnimator.swift in Sources */,
 				2FF4F0C31DAF114E00E9832F /* Extensions.swift in Sources */,
 				2FE12CCA1D69405C00990A1D /* VideoTableViewController.swift in Sources */,
-				544368841CFF8F8B004476C3 /* CircleRefreshAnimator.swift in Sources */,
-				5443688D1CFF8F8B004476C3 /* SparkInfinityAnimator.swift in Sources */,
-				544368911CFF8F8B004476C3 /* PullToRefresher.swift in Sources */,
-				544368941CFF8F8B004476C3 /* InfinityTableViewController.swift in Sources */,
-				544368891CFF8F8B004476C3 /* NormalInfinityAnimator.swift in Sources */,
-				5443688F1CFF8F8B004476C3 /* InfiniteScroller.swift in Sources */,
 				E6E8320B1CF35AB000AA5249 /* SHYouTubeService.m in Sources */,
-				544368871CFF8F8B004476C3 /* GIFInfinityAnimator.swift in Sources */,
 				2FC4D4FA1DA1812F00EF5CDD /* Entities.swift in Sources */,
 				2FE12CCE1D6D27B700990A1D /* VideoTableViewCell.swift in Sources */,
 			);
