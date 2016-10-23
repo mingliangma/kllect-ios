@@ -94,7 +94,7 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 			
 			let gradientLayer = CAGradientLayer()
 			gradientLayer.frame = tempCell.bounds
-			gradientLayer.colors = [UIColor.white.cgColor, UIColor(hex: 0xf8f8f8).cgColor]
+			gradientLayer.colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor, #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1).cgColor]
 			gradientLayer.locations = [0.0, 1.0]
 			
 			tempCell.contentView.layer.insertSublayer(gradientLayer, at: 0)

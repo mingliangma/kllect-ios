@@ -111,8 +111,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		}
 		
 		let shapeLayer = CAShapeLayer()
-		shapeLayer.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-		shapeLayer.lineWidth = 2
+		shapeLayer.strokeColor = #colorLiteral(red: 0.2509803922, green: 0.2509803922, blue: 0.2549019608, alpha: 1).cgColor
+		shapeLayer.lineWidth = 1.5
 		
 		shapeLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0).cgColor
 		
