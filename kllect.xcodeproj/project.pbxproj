@@ -34,7 +34,6 @@
 		E6E831991CF3519300AA5249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6E831981CF3519300AA5249 /* Assets.xcassets */; };
 		E6E8319C1CF3519300AA5249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E8319A1CF3519300AA5249 /* LaunchScreen.storyboard */; };
 		E6E831A71CF3519300AA5249 /* kllectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E831A61CF3519300AA5249 /* kllectUITests.swift */; };
-		E6E831DE1CF3528300AA5249 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E831CE1CF3528300AA5249 /* UIImage+Gif.swift */; };
 		E6E831E71CF352AF00AA5249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E831E61CF352AF00AA5249 /* AppDelegate.swift */; };
 		E6E832081CF35AB000AA5249 /* NSString+SHYouTubeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E832001CF35AB000AA5249 /* NSString+SHYouTubeHelper.m */; };
 		E6E832091CF35AB000AA5249 /* NSURLRequest+SHYouTubeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E832021CF35AB000AA5249 /* NSURLRequest+SHYouTubeHelper.m */; };
@@ -88,7 +87,6 @@
 		E6E831A21CF3519300AA5249 /* kllectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kllectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E831A61CF3519300AA5249 /* kllectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kllectUITests.swift; sourceTree = "<group>"; };
 		E6E831A81CF3519300AA5249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6E831CE1CF3528300AA5249 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		E6E831E61CF352AF00AA5249 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6E831FD1CF3580A00AA5249 /* kllect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kllect-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		E6E831FF1CF35AB000AA5249 /* NSString+SHYouTubeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHYouTubeHelper.h"; sourceTree = "<group>"; };
@@ -225,18 +223,9 @@
 		E6E831CC1CF3528300AA5249 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				E6E831CD1CF3528300AA5249 /* SwiftGifCommon */,
 				E6E831CF1CF3528300AA5249 /* YoutubeParser */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		E6E831CD1CF3528300AA5249 /* SwiftGifCommon */ = {
-			isa = PBXGroup;
-			children = (
-				E6E831CE1CF3528300AA5249 /* UIImage+Gif.swift */,
-			);
-			path = SwiftGifCommon;
 			sourceTree = "<group>";
 		};
 		E6E831CF1CF3528300AA5249 /* YoutubeParser */ = {
@@ -482,7 +471,6 @@
 				E6E832081CF35AB000AA5249 /* NSString+SHYouTubeHelper.m in Sources */,
 				2F3676091D986D10002A5B4A /* MenuViewController.swift in Sources */,
 				E6E831E71CF352AF00AA5249 /* AppDelegate.swift in Sources */,
-				E6E831DE1CF3528300AA5249 /* UIImage+Gif.swift in Sources */,
 				E6E8320A1CF35AB000AA5249 /* SHYouTube.m in Sources */,
 				2FF4F0C51DB19EC400E9832F /* CategoryOverlayView.swift in Sources */,
 				2F079A451DB8419700F49CE3 /* HeaderTableViewCell.swift in Sources */,
