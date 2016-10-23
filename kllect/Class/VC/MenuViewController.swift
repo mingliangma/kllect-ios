@@ -49,14 +49,29 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.tags.count
+		return self.tags.count + 1
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if 0 == indexPath.row {
+			return 25
+		} else {
+			return 44
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "InterestCell", for: indexPath)
+		let cell: UITableViewCell
 		
-		let tag = self.tags[indexPath.row]
-		cell.textLabel!.text = "\(tag.tagName!.replacingOccurrences(of: "_", with: " ").capitalized)"
+		if 0 == indexPath.row {
+			cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
+			let attributedString = NSAttributedString(string: "Categories".uppercased(), attributes: [NSKernAttributeName: NSNumber(value: 2.0)])
+			cell.textLabel!.attributedText = attributedString
+		} else {
+			cell = tableView.dequeueReusableCell(withIdentifier: "InterestCell", for: indexPath)
+			let tag = self.tags[indexPath.row - 1]
+			cell.textLabel!.text = "\(tag.tagName!.replacingOccurrences(of: "_", with: " ").capitalized)"
+		}
 		
 		return cell
 	}
