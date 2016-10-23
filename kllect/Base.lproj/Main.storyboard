@@ -175,7 +175,7 @@
         <!--Pulley View Controller-->
         <scene sceneID="8GC-CT-KwM">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="mgE-bX-k0b" customClass="PulleyViewController" customModule="Pulley" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="mgE-bX-k0b" customClass="PulleyViewController" customModule="kllect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="asa-6T-8sW"/>
                         <viewControllerLayoutGuide type="bottom" id="wny-aJ-bVU"/>

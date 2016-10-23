@@ -8,7 +8,6 @@
 
 import UIKit
 import ObjectMapper
-import Pulley
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PulleyDelegate {
 	

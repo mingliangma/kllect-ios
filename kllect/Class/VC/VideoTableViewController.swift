@@ -12,7 +12,6 @@ import AVKit
 import Kingfisher
 import Crashlytics
 import ObjectMapper
-import Pulley
 import SafariServices
 
 class VideoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

@@ -20,6 +20,8 @@
 		2F079A5E1DBCE82D00F49CE3 /* Colfax-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F079A521DBCE82D00F49CE3 /* Colfax-RegularItalic.otf */; };
 		2F079A5F1DBCE82D00F49CE3 /* Colfax-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F079A531DBCE82D00F49CE3 /* Colfax-Thin.otf */; };
 		2F079A601DBCE82D00F49CE3 /* Colfax-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F079A541DBCE82D00F49CE3 /* Colfax-ThinItalic.otf */; };
+		2F079A641DBCF10D00F49CE3 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F079A621DBCF10D00F49CE3 /* PulleyPassthroughScrollView.swift */; };
+		2F079A651DBCF10D00F49CE3 /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F079A631DBCF10D00F49CE3 /* PulleyViewController.swift */; };
 		2F3676091D986D10002A5B4A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3676081D986D10002A5B4A /* MenuViewController.swift */; };
 		2F8C0E431D7FB6F4006D000F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8C0E421D7FB6F4006D000F /* WebKit.framework */; };
 		2FC4D4FA1DA1812F00EF5CDD /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4D4F91DA1812F00EF5CDD /* Entities.swift */; };
@@ -68,6 +70,8 @@
 		2F079A521DBCE82D00F49CE3 /* Colfax-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Colfax-RegularItalic.otf"; sourceTree = "<group>"; };
 		2F079A531DBCE82D00F49CE3 /* Colfax-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Colfax-Thin.otf"; sourceTree = "<group>"; };
 		2F079A541DBCE82D00F49CE3 /* Colfax-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Colfax-ThinItalic.otf"; sourceTree = "<group>"; };
+		2F079A621DBCF10D00F49CE3 /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
+		2F079A631DBCF10D00F49CE3 /* PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyViewController.swift; sourceTree = "<group>"; };
 		2F3676081D986D10002A5B4A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2F8C0E421D7FB6F4006D000F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2FC4D4F91DA1812F00EF5CDD /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
@@ -143,6 +147,15 @@
 			);
 			name = Fonts;
 			path = Resource/Fonts;
+			sourceTree = "<group>";
+		};
+		2F079A611DBCF10D00F49CE3 /* Pulley */ = {
+			isa = PBXGroup;
+			children = (
+				2F079A621DBCF10D00F49CE3 /* PulleyPassthroughScrollView.swift */,
+				2F079A631DBCF10D00F49CE3 /* PulleyViewController.swift */,
+			);
+			path = Pulley;
 			sourceTree = "<group>";
 		};
 		4D0D16D2B036868E089DC422 /* Frameworks */ = {
@@ -223,6 +236,7 @@
 		E6E831CC1CF3528300AA5249 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				2F079A611DBCF10D00F49CE3 /* Pulley */,
 				E6E831CF1CF3528300AA5249 /* YoutubeParser */,
 			);
 			path = Lib;
@@ -469,6 +483,8 @@
 			files = (
 				E6E832091CF35AB000AA5249 /* NSURLRequest+SHYouTubeHelper.m in Sources */,
 				E6E832081CF35AB000AA5249 /* NSString+SHYouTubeHelper.m in Sources */,
+				2F079A641DBCF10D00F49CE3 /* PulleyPassthroughScrollView.swift in Sources */,
+				2F079A651DBCF10D00F49CE3 /* PulleyViewController.swift in Sources */,
 				2F3676091D986D10002A5B4A /* MenuViewController.swift in Sources */,
 				E6E831E71CF352AF00AA5249 /* AppDelegate.swift in Sources */,
 				E6E8320A1CF35AB000AA5249 /* SHYouTube.m in Sources */,
