@@ -182,18 +182,14 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 	
 	override func viewDidAppear(_ animated: Bool) {
 		self.overlayView.frame = self.view.bounds
-		self.overlayView.alpha = 0
+		self.overlayView.alpha = 1
 		
 		self.view.addSubview(self.overlayView)
 		self.overlayView.category = self.interest
 		
-		UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeCubic, animations: {
+		UIView.animateKeyframes(withDuration: 2.0, delay: 0.0, options: .calculationModeCubic, animations: {
 			
-			UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0/4.0, animations: {
-				self.overlayView.alpha = 1
-			})
-			
-			UIView.addKeyframe(withRelativeStartTime: 3.0/4.0, relativeDuration: 1.0/4.0, animations: {
+			UIView.addKeyframe(withRelativeStartTime: 1.0/2.0, relativeDuration: 1.0/2.0, animations: {
 				self.overlayView.alpha = 0
 			})
 			

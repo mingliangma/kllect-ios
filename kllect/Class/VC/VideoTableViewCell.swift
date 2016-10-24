@@ -10,9 +10,9 @@ import UIKit
 
 class VideoTableViewCell: UITableViewCell {
 
-	@IBOutlet var backgroundImage: UIImageView!
-	@IBOutlet var titleLabel: UILabel!
-	@IBOutlet var sourceLabel: UILabel!
-	@IBOutlet var timeLabel: UILabel!
+	@IBOutlet weak var backgroundImage: UIImageView!
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var sourceLabel: UILabel!
+	@IBOutlet weak var timeLabel: UILabel!
 
 }
