@@ -31,6 +31,7 @@
 		2FF4F0C31DAF114E00E9832F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4F0C21DAF114E00E9832F /* Extensions.swift */; };
 		2FF4F0C51DB19EC400E9832F /* CategoryOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4F0C41DB19EC400E9832F /* CategoryOverlayView.swift */; };
 		5426D20C1CFF5E1C0043CEB9 /* defaultback.png in Resources */ = {isa = PBXBuildFile; fileRef = 5426D20B1CFF5E1C0043CEB9 /* defaultback.png */; };
+		5C38A21A9A1518FD30489B9F /* Pods_kllectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABCC19CD7DDBB4D847577521 /* Pods_kllectUITests.framework */; };
 		C7497EC17DDC02D0C17F31AC /* Pods_kllect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB36E7A03C42AF5115188843 /* Pods_kllect.framework */; };
 		E6E831971CF3519300AA5249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E831951CF3519300AA5249 /* Main.storyboard */; };
 		E6E831991CF3519300AA5249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6E831981CF3519300AA5249 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F00A9B4A283337DF04F56A6 /* Pods-kllectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kllectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kllectUITests/Pods-kllectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D849198C808C4AA129FC87D /* Pods-kllect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kllect.release.xcconfig"; path = "Pods/Target Support Files/Pods-kllect/Pods-kllect.release.xcconfig"; sourceTree = "<group>"; };
 		2F079A441DB8419700F49CE3 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		2F079A491DBCE82D00F49CE3 /* Colfax-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Colfax-Black.otf"; sourceTree = "<group>"; };
@@ -82,6 +84,8 @@
 		2FF4F0C41DB19EC400E9832F /* CategoryOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryOverlayView.swift; sourceTree = "<group>"; };
 		5426D20B1CFF5E1C0043CEB9 /* defaultback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultback.png; path = Resource/defaultback.png; sourceTree = "<group>"; };
 		9859ED54FBE76C1803AE2653 /* Pods-kllect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kllect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kllect/Pods-kllect.debug.xcconfig"; sourceTree = "<group>"; };
+		A50B9949E1C5CB5F14743D2B /* Pods-kllectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kllectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kllectUITests/Pods-kllectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ABCC19CD7DDBB4D847577521 /* Pods_kllectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kllectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB36E7A03C42AF5115188843 /* Pods_kllect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kllect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E8318E1CF3519300AA5249 /* kllect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kllect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E831961CF3519300AA5249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C38A21A9A1518FD30489B9F /* Pods_kllectUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +169,7 @@
 				2F8C0E421D7FB6F4006D000F /* WebKit.framework */,
 				F2B3A1F9C2ADEA51BCED80CA /* Pods.framework */,
 				CB36E7A03C42AF5115188843 /* Pods_kllect.framework */,
+				ABCC19CD7DDBB4D847577521 /* Pods_kllectUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 			children = (
 				9859ED54FBE76C1803AE2653 /* Pods-kllect.debug.xcconfig */,
 				1D849198C808C4AA129FC87D /* Pods-kllect.release.xcconfig */,
+				0F00A9B4A283337DF04F56A6 /* Pods-kllectUITests.debug.xcconfig */,
+				A50B9949E1C5CB5F14743D2B /* Pods-kllectUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -325,9 +333,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6E831AE1CF3519300AA5249 /* Build configuration list for PBXNativeTarget "kllectUITests" */;
 			buildPhases = (
+				47B67572F5CDEB303D0164D9 /* [CP] Check Pods Manifest.lock */,
 				E6E8319E1CF3519300AA5249 /* Sources */,
 				E6E8319F1CF3519300AA5249 /* Frameworks */,
 				E6E831A01CF3519300AA5249 /* Resources */,
+				56EBC646658D1225D02CD141 /* [CP] Embed Pods Frameworks */,
+				C32C0351970BB1C2E26954A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -458,6 +469,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/Fabric/run d885192ee64692e1382a243d34f9949a3d9252e1 49dbf2136e4ea073388b6c9a1041ad1b7a76a04c8af76acd65e3042d7dbf2818";
+		};
+		47B67572F5CDEB303D0164D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		56EBC646658D1225D02CD141 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kllectUITests/Pods-kllectUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C32C0351970BB1C2E26954A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kllectUITests/Pods-kllectUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		F24B43D2FA3393CF038327C9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -664,6 +720,7 @@
 		};
 		E6E831AF1CF3519300AA5249 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F00A9B4A283337DF04F56A6 /* Pods-kllectUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = kllectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -676,6 +733,7 @@
 		};
 		E6E831B01CF3519300AA5249 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A50B9949E1C5CB5F14743D2B /* Pods-kllectUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = kllectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

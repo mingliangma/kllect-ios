@@ -11,4 +11,8 @@ target 'kllect' do
 	pod 'SDVersion'
 	pod 'Fabric'
 	pod 'Crashlytics'
+
+	target 'kllectUITests' do
+		inherit! :search_paths
+	end
 end
