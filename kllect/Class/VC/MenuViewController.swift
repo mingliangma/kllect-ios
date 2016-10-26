@@ -24,6 +24,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			}
 		}
 	}
+	
+	private var selectedIndex: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,41 +47,67 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	}
     
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return 2
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.tags.count + 1
+		if section == 0 {
+			return 1
+		} else {
+			return self.tags.count
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if 0 == indexPath.row {
-			return 25
+		if 0 == indexPath.section {
+			return 30
 		} else {
-			return 44
+			return 46
 		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: UITableViewCell
 		
-		if 0 == indexPath.row {
+		if 0 == indexPath.section {
 			cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
 			let attributedString = NSAttributedString(string: "Categories".uppercased(), attributes: [NSKernAttributeName: NSNumber(value: 2.0)])
 			cell.textLabel!.attributedText = attributedString
 		} else {
 			cell = tableView.dequeueReusableCell(withIdentifier: "InterestCell", for: indexPath)
-			let tag = self.tags[indexPath.row - 1]
+			let tag = self.tags[indexPath.row]
 			cell.textLabel!.text = "\(tag.tagName!.replacingOccurrences(of: "_", with: " ").capitalized)"
 		}
 		
+		if indexPath != self.selectedIndex {
+			cell.accessoryType = .none
+		} else {
+			cell.accessoryType = .checkmark
+		}
+		
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+		guard indexPath.section != 0 else {
+			return nil
+		}
+		return indexPath
+	}
+	
+	func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+		return indexPath.section != 0
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let tag = self.tags[indexPath.row]
 		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowVideosForTag"), object: nil, userInfo: ["Tag": tag])
 		self.tableView.deselectRow(at: indexPath, animated: false)
+		if let index = self.selectedIndex {
+			self.tableView.cellForRow(at: index)?.accessoryType = .none
+		}
+		self.selectedIndex = indexPath
+		self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
 		if let drawer = self.parent as? PulleyViewController {
 			drawer.setDrawerPosition(position: .collapsed, animated: true)
 		}

@@ -42,11 +42,15 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Table view data source
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articles.count
+		if section == 0 {
+			return 1
+		} else {
+			return self.articles.count
+		}
     }
 	
 //	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -70,7 +74,7 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: UITableViewCell
-		if indexPath.row == 0 {
+		if indexPath.section == 0 {
 			let tempCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as! HeaderTableViewCell
 			
 			tempCell.titleLabel.text = self.interest.replacingOccurrences(of: "_", with: " ").capitalized
@@ -86,10 +90,11 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 			tempCell.backgroundImage.layer.cornerRadius = 6
 			let layer = tempCell.backgroundImage.layer
 			
+			// make shadow new layer so rounded corners work (i think)
 			layer.masksToBounds = false
 			layer.shadowColor = UIColor.black.cgColor
 			layer.shadowOffset = CGSize(width: 0, height: 0)
-			layer.shadowOpacity = 0.4
+			layer.shadowOpacity = 0.25
 			
 			let gradientLayer = CAGradientLayer()
 			gradientLayer.frame = tempCell.bounds
@@ -162,12 +167,12 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row == 0 {
-			return 80
+		if indexPath.section == 0 {
+			return 60
 		} else if indexPath.row < self.articles.count - 1 {
-			return 288
+			return 303
 		} else {
-			return 356
+			return 371
 		}
 	}
 	
@@ -228,7 +233,7 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
 					let count = self.articles.count
 					self.articles.append(contentsOf: page.articles)
-					let indexPaths = (count..<self.articles.count).map { return IndexPath(row: $0, section: 0) }
+					let indexPaths = (count..<self.articles.count).map { return IndexPath(row: $0, section: 1) }
 					self.nextPage = URL(string: "http://api.app.kllect.com/\(page.nextPagePath.absoluteString)")!
 					
 					if page.articleCount > 0 {
