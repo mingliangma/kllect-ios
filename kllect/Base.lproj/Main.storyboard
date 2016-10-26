@@ -111,7 +111,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="TU2-2Z-Hxx" firstAttribute="centerY" secondItem="fCj-OL-Q4i" secondAttribute="centerY" constant="10" id="AiZ-HL-r3D"/>
+                                                <constraint firstItem="TU2-2Z-Hxx" firstAttribute="centerY" secondItem="fCj-OL-Q4i" secondAttribute="centerY" constant="20" id="AiZ-HL-r3D"/>
                                                 <constraint firstItem="TU2-2Z-Hxx" firstAttribute="leading" secondItem="fCj-OL-Q4i" secondAttribute="leading" constant="23" id="QkL-ol-4ze"/>
                                                 <constraint firstAttribute="trailing" secondItem="TU2-2Z-Hxx" secondAttribute="trailing" constant="23" id="s4c-VZ-26l"/>
                                             </constraints>
@@ -173,7 +173,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="3IZ-M5-KXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4PH-Ob-BhT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4PH-Ob-BhT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -266,25 +266,31 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="23" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeaderCell" textLabel="oOG-VO-4JO" rowHeight="25" style="IBUITableViewCellStyleDefault" id="QLB-Yd-WVG">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeaderCell" rowHeight="25" id="QLB-Yd-WVG" customClass="HeaderTableViewCell" customModule="kllect" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QLB-Yd-WVG" id="a4F-U4-wjq">
                                             <frame key="frameInset" width="375" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oOG-VO-4JO">
-                                                    <frame key="frameInset" minX="23" width="337" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92C-sK-Kmj">
                                                     <fontDescription key="fontDescription" name="Colfax-Bold" family="Colfax" pointSize="13"/>
-                                                    <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="92C-sK-Kmj" secondAttribute="trailing" constant="23" id="LW8-em-Ykf"/>
+                                                <constraint firstItem="92C-sK-Kmj" firstAttribute="centerY" secondItem="a4F-U4-wjq" secondAttribute="centerY" constant="5" id="eQB-jg-lOo"/>
+                                                <constraint firstItem="92C-sK-Kmj" firstAttribute="leading" secondItem="a4F-U4-wjq" secondAttribute="leading" constant="23" id="wdP-OC-mda"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="23" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="92C-sK-Kmj" id="E4I-4k-pdX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

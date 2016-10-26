@@ -72,7 +72,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		if 0 == indexPath.section {
 			cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
 			let attributedString = NSAttributedString(string: "Categories".uppercased(), attributes: [NSKernAttributeName: NSNumber(value: 2.0)])
-			cell.textLabel!.attributedText = attributedString
+			(cell as! HeaderTableViewCell).titleLabel.attributedText = attributedString
 		} else {
 			cell = tableView.dequeueReusableCell(withIdentifier: "InterestCell", for: indexPath)
 			let tag = self.tags[indexPath.row]
