@@ -96,11 +96,11 @@
                                             <outlet property="titleLabel" destination="p75-CO-Vsl" id="FaH-KR-eJz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="60" id="rix-gq-ZW3" customClass="HeaderTableViewCell" customModule="kllect" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="316" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="40" id="rix-gq-ZW3" customClass="HeaderTableViewCell" customModule="kllect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="316" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rix-gq-ZW3" id="fCj-OL-Q4i">
-                                            <frame key="frameInset" width="375" height="60"/>
+                                            <frame key="frameInset" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-2Z-Hxx">
@@ -111,7 +111,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="TU2-2Z-Hxx" firstAttribute="centerY" secondItem="fCj-OL-Q4i" secondAttribute="centerY" constant="20" id="AiZ-HL-r3D"/>
+                                                <constraint firstItem="TU2-2Z-Hxx" firstAttribute="centerY" secondItem="fCj-OL-Q4i" secondAttribute="centerY" id="AiZ-HL-r3D"/>
                                                 <constraint firstItem="TU2-2Z-Hxx" firstAttribute="leading" secondItem="fCj-OL-Q4i" secondAttribute="leading" constant="23" id="QkL-ol-4ze"/>
                                                 <constraint firstAttribute="trailing" secondItem="TU2-2Z-Hxx" secondAttribute="trailing" constant="23" id="s4c-VZ-26l"/>
                                             </constraints>
@@ -131,11 +131,12 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="oLy-uO-XOb" firstAttribute="leading" secondItem="puA-4H-1tf" secondAttribute="leading" id="3vG-Yc-Vs4"/>
-                            <constraint firstItem="oLy-uO-XOb" firstAttribute="top" secondItem="Mvw-Zu-RpY" secondAttribute="bottom" constant="-20" id="G8r-qc-iqQ"/>
+                            <constraint firstItem="oLy-uO-XOb" firstAttribute="top" secondItem="Mvw-Zu-RpY" secondAttribute="bottom" id="G8r-qc-iqQ"/>
                             <constraint firstItem="b9p-Aj-AKR" firstAttribute="top" secondItem="oLy-uO-XOb" secondAttribute="bottom" id="a4g-NS-DCj"/>
                             <constraint firstAttribute="trailing" secondItem="oLy-uO-XOb" secondAttribute="trailing" id="fQT-j6-i9W"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="overlayView" destination="7au-jz-mzK" id="Ckv-q8-vRq"/>
                         <outlet property="tableView" destination="oLy-uO-XOb" id="uYL-nc-cpD"/>
@@ -173,7 +174,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="3IZ-M5-KXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4PH-Ob-BhT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4PH-Ob-BhT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
