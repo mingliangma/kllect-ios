@@ -88,9 +88,9 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 			tempCell.backgroundImage.kf.setImage(with: video.imageUrl)
 			
 			tempCell.backgroundImage.layer.cornerRadius = 6
-			let layer = tempCell.backgroundImage.layer
 			
 			// make shadow new layer so rounded corners work (i think)
+			let layer = tempCell.backingView.layer
 			layer.masksToBounds = false
 			layer.shadowColor = UIColor.black.cgColor
 			layer.shadowOffset = CGSize(width: 0, height: 0)
