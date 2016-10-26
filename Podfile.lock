@@ -4,19 +4,22 @@ PODS:
   - Fabric (1.6.9)
   - Kingfisher (3.1.0)
   - ObjectMapper (2.0.0)
+  - SDVersion (3.6)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
   - Kingfisher (~> 3.0)
   - ObjectMapper (~> 2.0)
+  - SDVersion
 
 SPEC CHECKSUMS:
   Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   Kingfisher: 7779f22e977393e9533a89a9685beb8f679d3767
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  SDVersion: 43383b6ac05462c973c3fd92d9748c74e360aba5
 
-PODFILE CHECKSUM: 7a1db52a089db382c5b71dfcab51c0566e807246
+PODFILE CHECKSUM: 7087146c8b4825a2b2ab4b525e3ef276d3aa487c
 
 COCOAPODS: 1.1.0.rc.2

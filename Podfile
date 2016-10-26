@@ -8,6 +8,7 @@ target 'kllect' do
 	#pod 'Pulley'
 	pod 'Kingfisher', '~> 3.0'
 	pod 'ObjectMapper', '~> 2.0'
+	pod 'SDVersion'
 	pod 'Fabric'
 	pod 'Crashlytics'
 end

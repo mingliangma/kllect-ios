@@ -11,5 +11,6 @@
 
 #import "SHYouTube.h"
 #import "SHYouTubeService.h"
+@import SDVersion;
 
 #endif /* kllect_Bridging_Header_h */

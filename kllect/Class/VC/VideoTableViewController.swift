@@ -167,12 +167,13 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		let ipadAddition: CGFloat = SDiOSVersion.deviceSize() == .Screen5Dot5inch ? 20 : 0
 		if indexPath.section == 0 {
 			return 60
 		} else if indexPath.row < self.articles.count - 1 {
-			return 303
+			return 303 + ipadAddition
 		} else {
-			return 371
+			return 371 + ipadAddition
 		}
 	}
 	
