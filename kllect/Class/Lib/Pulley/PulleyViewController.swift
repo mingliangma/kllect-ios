@@ -533,7 +533,7 @@ public class PulleyViewController: UIViewController, UIScrollViewDelegate, Pulle
                 partialRevealHeight = drawerVCCompliant.partialRevealDrawerHeight()
             }
             
-            let drawerStops = [(self.view.bounds.size.height - topInset), collapsedHeight, partialRevealHeight]
+            let drawerStops = [(self.view.bounds.size.height - topInset), collapsedHeight, (self.view.bounds.size.height - topInset)]
             let lowestStop = drawerStops.min() ?? 0
             
             let distanceFromBottomOfView = lowestStop + lastDragTargetContentOffset.y
