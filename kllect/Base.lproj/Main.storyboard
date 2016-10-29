@@ -184,12 +184,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="mgE-bX-k0b" kind="relationship" relationship="rootViewController" id="LzX-I7-8iM"/>
+                        <segue destination="g3X-vg-nDh" kind="relationship" relationship="rootViewController" id="96g-aJ-rfk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpW-43-OWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="-1525"/>
+            <point key="canvasLocation" x="-634" y="-1527"/>
+        </scene>
         <!--Interests View Controller-->
         <scene sceneID="y3J-dK-yV7">
             <objects>
@@ -351,7 +352,66 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egL-3b-o4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-1523"/>
+            <point key="canvasLocation" x="1412" y="-1531"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Jyf-Hr-NDv">
+            <objects>
+                <viewController id="g3X-vg-nDh" customClass="LoginViewController" customModule="kllect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uyk-nb-37h"/>
+                        <viewControllerLayoutGuide type="bottom" id="Noz-Tm-xSG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tw2-Vy-VDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2R-Yq-4Br">
+                                <fontDescription key="fontDescription" name="Colfax-Regular" family="Colfax" pointSize="18"/>
+                                <state key="normal" title="Sign In With Facebook">
+                                    <color key="titleColor" red="0.90749920685279184" green="0.64439446999289673" blue="0.21134569797897795" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xIk-mH-T3g" kind="push" identifier="ToInterestScreenFB" id="bLb-eH-dti"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OR9-By-Zn8">
+                                <fontDescription key="fontDescription" name="Colfax-Regular" family="Colfax" pointSize="15"/>
+                                <state key="normal" title="Continue As Guest">
+                                    <color key="titleColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xIk-mH-T3g" kind="push" identifier="ToInterestScreenGuest" id="BbH-Kl-t5E"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kllect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2P-K3-7ie">
+                                <fontDescription key="fontDescription" name="Colfax-Regular" family="Colfax" pointSize="35"/>
+                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Noz-Tm-xSG" firstAttribute="top" secondItem="OR9-By-Zn8" secondAttribute="bottom" constant="20" id="4c1-K8-cGM"/>
+                            <constraint firstItem="b2P-K3-7ie" firstAttribute="leading" secondItem="Tw2-Vy-VDZ" secondAttribute="leading" constant="16" id="Apa-4s-XFX"/>
+                            <constraint firstItem="OR9-By-Zn8" firstAttribute="leading" secondItem="T2R-Yq-4Br" secondAttribute="leading" id="LQH-44-iyV"/>
+                            <constraint firstItem="T2R-Yq-4Br" firstAttribute="leading" secondItem="b2P-K3-7ie" secondAttribute="leading" id="M1C-Ds-S0f"/>
+                            <constraint firstItem="OR9-By-Zn8" firstAttribute="top" secondItem="T2R-Yq-4Br" secondAttribute="bottom" constant="30" id="eVA-FA-rBx"/>
+                            <constraint firstItem="b2P-K3-7ie" firstAttribute="centerY" secondItem="Tw2-Vy-VDZ" secondAttribute="centerY" id="vWC-Lr-5Gh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dDj-vV-SsW"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="facebookButton" destination="T2R-Yq-4Br" id="YLQ-3O-mCf"/>
+                        <outlet property="guestButton" destination="OR9-By-Zn8" id="7Ed-Zb-5XS"/>
+                        <outlet property="kllectLabel" destination="b2P-K3-7ie" id="DY1-8E-3qa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxn-8p-RCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-101" y="-1528"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="xLS-m9-ll2">
@@ -447,7 +507,7 @@
                             <constraint firstAttribute="trailing" secondItem="2Hl-2N-3yl" secondAttribute="trailing" constant="20" symbolic="YES" id="1kO-rK-H09"/>
                             <constraint firstItem="O13-Az-orT" firstAttribute="top" secondItem="dxq-Py-Ztt" secondAttribute="bottom" constant="14" id="2gO-qe-hAn"/>
                             <constraint firstAttribute="trailing" secondItem="QHZ-3f-LGu" secondAttribute="trailing" id="MnD-gQ-dke"/>
-                            <constraint firstItem="O13-Az-orT" firstAttribute="top" secondItem="nUT-ev-pAc" secondAttribute="bottom" constant="48" id="WWW-3e-n0K"/>
+                            <constraint firstItem="O13-Az-orT" firstAttribute="top" secondItem="nUT-ev-pAc" secondAttribute="bottom" constant="68" id="WWW-3e-n0K"/>
                             <constraint firstItem="2Hl-2N-3yl" firstAttribute="bottom" secondItem="dxq-Py-Ztt" secondAttribute="bottom" id="aIZ-Fx-xMh"/>
                             <constraint firstAttribute="trailing" secondItem="O13-Az-orT" secondAttribute="trailing" id="bgu-ag-D2t"/>
                             <constraint firstItem="QHZ-3f-LGu" firstAttribute="leading" secondItem="fX4-Lz-OBa" secondAttribute="leading" id="cyF-MN-Ovp"/>
@@ -477,7 +537,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1187.5" y="-1524.5"/>
+            <point key="canvasLocation" x="1977" y="-1532"/>
         </scene>
         <!--Video Page View Controller-->
         <scene sceneID="XZe-Vy-goA">
@@ -487,7 +547,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h55-F8-zMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1811" y="-1526"/>
+            <point key="canvasLocation" x="2482" y="-1533"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -495,4 +555,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="BbH-Kl-t5E"/>
+    </inferredMetricsTieBreakers>
 </document>

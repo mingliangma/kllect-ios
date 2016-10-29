@@ -24,6 +24,7 @@
 		2F079A651DBCF10D00F49CE3 /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F079A631DBCF10D00F49CE3 /* PulleyViewController.swift */; };
 		2F3676091D986D10002A5B4A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3676081D986D10002A5B4A /* MenuViewController.swift */; };
 		2F8C0E431D7FB6F4006D000F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8C0E421D7FB6F4006D000F /* WebKit.framework */; };
+		2FC0825B1DC4195400E70585 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0825A1DC4195400E70585 /* LoginViewController.swift */; };
 		2FC0825D1DC420C900E70585 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0825C1DC420C900E70585 /* InterestsViewController.swift */; };
 		2FC0825F1DC420D200E70585 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0825E1DC420D200E70585 /* LoadingViewController.swift */; };
 		2FC4D4FA1DA1812F00EF5CDD /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4D4F91DA1812F00EF5CDD /* Entities.swift */; };
@@ -78,6 +79,7 @@
 		2F079A631DBCF10D00F49CE3 /* PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyViewController.swift; sourceTree = "<group>"; };
 		2F3676081D986D10002A5B4A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2F8C0E421D7FB6F4006D000F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		2FC0825A1DC4195400E70585 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2FC0825C1DC420C900E70585 /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		2FC0825E1DC420D200E70585 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		2FC4D4F91DA1812F00EF5CDD /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				2FF4F0C21DAF114E00E9832F /* Extensions.swift */,
 				2FF4F0C41DB19EC400E9832F /* CategoryOverlayView.swift */,
 				2F079A441DB8419700F49CE3 /* HeaderTableViewCell.swift */,
+				2FC0825A1DC4195400E70585 /* LoginViewController.swift */,
 				2FC0825C1DC420C900E70585 /* InterestsViewController.swift */,
 				2FC0825E1DC420D200E70585 /* LoadingViewController.swift */,
 			);
@@ -557,6 +560,7 @@
 				2FC0825D1DC420C900E70585 /* InterestsViewController.swift in Sources */,
 				2FF4F0C31DAF114E00E9832F /* Extensions.swift in Sources */,
 				2FE12CCA1D69405C00990A1D /* VideoTableViewController.swift in Sources */,
+				2FC0825B1DC4195400E70585 /* LoginViewController.swift in Sources */,
 				E6E8320B1CF35AB000AA5249 /* SHYouTubeService.m in Sources */,
 				2FC4D4FA1DA1812F00EF5CDD /* Entities.swift in Sources */,
 				2FE12CCE1D6D27B700990A1D /* VideoTableViewCell.swift in Sources */,
