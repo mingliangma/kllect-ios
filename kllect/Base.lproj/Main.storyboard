@@ -167,14 +167,14 @@
                     </connections>
                 </visualEffectView>
             </objects>
-            <point key="canvasLocation" x="1172.5" y="-549.5"/>
+            <point key="canvasLocation" x="1977" y="-606"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7AZ-o5-gLW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="3IZ-M5-KXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4PH-Ob-BhT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4PH-Ob-BhT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -190,6 +190,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpW-43-OWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9" y="-1525"/>
+        <!--Loading View Controller-->
+        <scene sceneID="fha-LD-Euj">
+            <objects>
+                <viewController id="A7q-Ep-L10" customClass="LoadingViewController" customModule="kllect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qgO-jS-qS2"/>
+                        <viewControllerLayoutGuide type="bottom" id="QaT-ul-HlX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dmT-um-Cls">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're creating your Kllect." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fo-dx-P2T">
+                                <fontDescription key="fontDescription" name="Colfax-Regular" family="Colfax" pointSize="30"/>
+                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bAW-UN-Ry2"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bAW-UN-Ry2" secondAttribute="trailing" id="9HG-p2-KCk"/>
+                            <constraint firstItem="bAW-UN-Ry2" firstAttribute="leading" secondItem="dmT-um-Cls" secondAttribute="leading" id="DdF-Ex-Uxu"/>
+                            <constraint firstItem="7Fo-dx-P2T" firstAttribute="top" secondItem="qgO-jS-qS2" secondAttribute="bottom" id="LEc-kW-8Dk"/>
+                            <constraint firstItem="7Fo-dx-P2T" firstAttribute="leading" secondItem="dmT-um-Cls" secondAttribute="leading" constant="16" id="T3d-tC-eSn"/>
+                            <constraint firstAttribute="trailing" secondItem="7Fo-dx-P2T" secondAttribute="trailing" constant="16" id="Wbx-z0-ong"/>
+                            <constraint firstItem="QaT-ul-HlX" firstAttribute="top" secondItem="bAW-UN-Ry2" secondAttribute="bottom" constant="1" id="yP4-i3-MOq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7SV-6a-B6V"/>
+                    <connections>
+                        <outlet property="headerLabel" destination="7Fo-dx-P2T" id="owe-ro-Qkn"/>
+                        <outlet property="progressBar" destination="bAW-UN-Ry2" id="3Jn-3k-J7J"/>
+                        <segue destination="mgE-bX-k0b" kind="push" identifier="ToHomeScreen" id="bCj-G8-a1w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0K-WG-RuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.5" y="-1530.5"/>
         </scene>
         <!--Pulley View Controller-->
         <scene sceneID="8GC-CT-KwM">
