@@ -190,6 +190,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpW-43-OWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9" y="-1525"/>
+        <!--Interests View Controller-->
+        <scene sceneID="y3J-dK-yV7">
+            <objects>
+                <viewController id="xIk-mH-T3g" customClass="InterestsViewController" customModule="kllect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xXF-dU-mcC"/>
+                        <viewControllerLayoutGuide type="bottom" id="ESK-J9-rHL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Bc-Ro-mx4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-6v-0PN">
+                                <fontDescription key="fontDescription" name="Colfax-Regular" family="Colfax" pointSize="21"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="A7q-Ep-L10" kind="push" identifier="ToLoadingScreen" id="3G9-ww-ttN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose X more categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5M-bq-TNe">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wsy-sF-clz">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="30" id="CdT-xb-zmf">
+                                    <size key="itemSize" width="150" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InterestCollectionCell" id="uEx-ja-far">
+                                        <rect key="frame" x="15" y="0.0" width="150" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="xIk-mH-T3g" id="9SU-yW-MTU"/>
+                                    <outlet property="delegate" destination="xIk-mH-T3g" id="8ME-8Z-BtO"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you interested in?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-zi-qYJ">
+                                <fontDescription key="fontDescription" name="Colfax-Regular" family="Colfax" pointSize="30"/>
+                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tfM-6v-0PN" firstAttribute="top" secondItem="Wsy-sF-clz" secondAttribute="bottom" constant="31" id="3Wc-B2-AKk"/>
+                            <constraint firstAttribute="trailing" secondItem="YH3-zi-qYJ" secondAttribute="trailing" constant="16" id="9WX-CR-EaO"/>
+                            <constraint firstItem="Wsy-sF-clz" firstAttribute="leading" secondItem="8Bc-Ro-mx4" secondAttribute="leading" id="Hvc-8P-ccX"/>
+                            <constraint firstItem="Wsy-sF-clz" firstAttribute="top" secondItem="YH3-zi-qYJ" secondAttribute="bottom" constant="8" symbolic="YES" id="JMl-nR-LM3"/>
+                            <constraint firstItem="ESK-J9-rHL" firstAttribute="top" secondItem="tfM-6v-0PN" secondAttribute="bottom" constant="20" id="JSv-tV-TrK"/>
+                            <constraint firstItem="tfM-6v-0PN" firstAttribute="leading" secondItem="YH3-zi-qYJ" secondAttribute="leading" id="WFI-ol-03B"/>
+                            <constraint firstItem="E5M-bq-TNe" firstAttribute="baseline" secondItem="tfM-6v-0PN" secondAttribute="baseline" id="XJX-l3-Ru0"/>
+                            <constraint firstAttribute="trailing" secondItem="Wsy-sF-clz" secondAttribute="trailing" id="XLu-3C-5Rr"/>
+                            <constraint firstItem="YH3-zi-qYJ" firstAttribute="leading" secondItem="8Bc-Ro-mx4" secondAttribute="leading" constant="16" id="ctu-nU-xwa"/>
+                            <constraint firstAttribute="trailing" secondItem="E5M-bq-TNe" secondAttribute="trailing" constant="16" id="qRc-LW-97w"/>
+                            <constraint firstItem="YH3-zi-qYJ" firstAttribute="top" secondItem="xXF-dU-mcC" secondAttribute="bottom" id="wt7-jE-oOF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ewh-GN-uGv"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Wsy-sF-clz" id="fJa-LT-AzK"/>
+                        <outlet property="continueButton" destination="tfM-6v-0PN" id="zfm-LY-62Z"/>
+                        <outlet property="headerLabel" destination="YH3-zi-qYJ" id="YVS-xU-Jh3"/>
+                        <outlet property="remainingLabel" destination="E5M-bq-TNe" id="MOp-kH-Vtm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDH-zl-0De" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390.5" y="-1528.5"/>
+        </scene>
         <!--Loading View Controller-->
         <scene sceneID="fha-LD-Euj">
             <objects>
