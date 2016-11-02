@@ -10,7 +10,7 @@ import Foundation
 
 enum KCTError: Error {
 	case networkError(Error) // This case is basically to forward a network error
-	case notJSONResponse
+	case notStringConvertable
 	case malformedType
 	case unknownError
 }

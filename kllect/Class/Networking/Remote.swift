@@ -30,7 +30,7 @@ class Remote {
 					return
 				}
 				guard let jsonString = String(data: data, encoding: .utf8) else {
-					complete(.failure(.notJSONResponse))
+					complete(.failure(.notStringConvertable))
 					return
 				}
 				guard let page = Mapper<Page>().map(JSONString: jsonString) else {
@@ -58,7 +58,7 @@ class Remote {
 					return
 				}
 				guard let jsonString = String(data: data, encoding: .utf8) else {
-					complete(.failure(.notJSONResponse))
+					complete(.failure(.notStringConvertable))
 					return
 				}
 				guard let tags = Mapper<Tag>().mapArray(JSONString: jsonString) else {
