@@ -21,7 +21,3 @@ target 'kllectTests' do
 	pod 'OHHTTPStubs'
 	pod 'OHHTTPStubs/Swift'
 end
-
-target 'kllectUITests' do
-	shared_pods
-end
