@@ -32,18 +32,16 @@ class InterestsViewController: UIViewController, UICollectionViewDelegate, UICol
 	}
 	
 	func getTags() {
-		let task = URLSession.shared.dataTask(with: URL(string: "http://api.app.kllect.com/tags")!) { data, response, error in
-			if error == nil {
-				do {
-					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [AnyObject]
-					let tags = Mapper<Tag>().mapArray(JSONObject: jsonData)!
-					self.tags = tags
-				} catch {
-					// handle error
-				}
+		
+		let future = Remote.getTags()
+		
+		future.onComplete { response in
+			guard let tags = response.value else {
+				// didn't get tags
+				return
 			}
+			self.tags = tags
 		}
-		task.resume()
 	}
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -63,7 +61,7 @@ class InterestsViewController: UIViewController, UICollectionViewDelegate, UICol
 		layer.cornerRadius = 21
 		
 		let label = UILabel()
-		label.text = self.tags[indexPath.row].tagName.replacingOccurrences(of: "_", with: " ").capitalized
+		label.text = self.tags[indexPath.row].displayName
 		label.font = UIFont(name: "Colfax-Regular", size: 18)
 		label.frame = UIEdgeInsetsInsetRect(cell.contentView.bounds, UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
 		label.sizeToFit()

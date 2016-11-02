@@ -76,7 +76,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		} else {
 			cell = tableView.dequeueReusableCell(withIdentifier: "InterestCell", for: indexPath)
 			let tag = self.tags[indexPath.row]
-			cell.textLabel!.text = "\(tag.tagName!.replacingOccurrences(of: "_", with: " ").capitalized)"
+			cell.textLabel!.text = tag.displayName
 		}
 		
 		if indexPath != self.selectedIndex {
@@ -114,25 +114,18 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	}
 	
 	func getTags() {
-		print("getting stuff")
-		let url = URL(string: "http://api.app.kllect.com/tags")
-		let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-			
-			if error == nil {
-				do {
-					print("success")
-					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [AnyObject]
-					self.tags.replaceSubrange(self.tags.startIndex..<self.tags.endIndex, with: Mapper<Tag>().mapArray(JSONObject: jsonData)!)
-					DispatchQueue.main.async {
-						self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
-					}					
-				} catch {
-					// handle error
-					
-				}
+		let future = Remote.getTags()
+		
+		future.onComplete { response in
+			guard let tags = response.value else {
+				// did get tags
+				return
+			}
+			self.tags.replaceSubrange(self.tags.startIndex..<self.tags.endIndex, with: tags)
+			DispatchQueue.main.async {
+				self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
 			}
 		}
-		task.resume()
 	}
 	
 	func drawerPositionDidChange(drawer: PulleyViewController) {

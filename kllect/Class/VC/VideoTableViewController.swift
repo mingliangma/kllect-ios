@@ -32,11 +32,11 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	private var nextPage: URL?
-	private var task: URLSessionDataTask?
+	private var taskInProgress = false
 	
 	override func viewDidLoad() {
 		self.view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
-		self.showTag(tag: "others")
+		self.showTag(tag: "Smartphones")
 	}
 	
     // MARK: - Table view data source
@@ -114,7 +114,6 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print("selected: \(indexPath)")
 		
 		let object = self.articles[indexPath.row]
 		
@@ -156,9 +155,7 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 			if #available(iOS 9.0, *) {
 				vc = SFSafariViewController(url: articleURL)
 			} else {
-//				let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//				vc = storyBoard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
-//				articleViewController.url = articleURL
+				// Fallback
 			}
 			Answers.logCustomEvent(withName: "WatchVideo", customAttributes: ["Interest": self.interest, "Title": object.title, "Url": trackingURL.absoluteString])
 
@@ -219,39 +216,35 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	func showTag(tag: TagName) {
-		let url = self.nextPage ?? URL(string: "http://api.app.kllect.com/articles/tag/\(tag)")
-		
-		if let _ = self.task {
+		guard !self.taskInProgress else {
 			return
 		}
-
-		let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+		
+		let url = self.nextPage ?? URL(string: Remote.baseUrlString().appending("articles/tag/\(tag)"))!
+		
+		let future = Remote.getVideosForPage(url: url)
+		
+		self.taskInProgress = true
+		
+		future.onComplete { response in
+			guard let page = response.value else {
+				// didn't get a page
+				return
+			}
+			let count = self.articles.count
+			self.articles.append(contentsOf: page.articles)
+			let indexPaths = (count..<self.articles.count).map { return IndexPath(row: $0, section: 1) }
+			self.nextPage = URL(string: Remote.baseUrlString().appending("\(page.nextPagePath.absoluteString)"))!
 			
-			if error == nil {
-				do {
-					let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
-					let page = Mapper<Page>().map(JSON: jsonData)!
-
-					let count = self.articles.count
-					self.articles.append(contentsOf: page.articles)
-					let indexPaths = (count..<self.articles.count).map { return IndexPath(row: $0, section: 1) }
-					self.nextPage = URL(string: "http://api.app.kllect.com/\(page.nextPagePath.absoluteString)")!
-					
-					if page.articleCount > 0 {
-						DispatchQueue.main.async {
-							self.tableView.reloadRows(at: indexPaths, with: .automatic)
-						}
-					}
-					
-				} catch {
-					// handle error
-					
+			if page.articleCount > 0 {
+				DispatchQueue.main.async {
+					self.tableView.reloadRows(at: indexPaths, with: .automatic)
 				}
 			}
-			self.task = nil
+			
+			self.taskInProgress = false
+			
 		}
-		self.task = task
-		task.resume()
 	}
 	
 	func loadNext() {
