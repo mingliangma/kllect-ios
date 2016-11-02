@@ -1,5 +1,5 @@
 //
-//  RemoteTests.swift
+//  GetPageTests.swift
 //  kllect
 //
 //  Created by Christopher Primerano on 2016-11-01.
@@ -12,59 +12,37 @@ import BrightFutures
 import Result
 @testable import kllect
 
-class RemoteTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+class GetPageTests: XCTestCase {
+	
+	override func setUp() {
+		super.setUp()
+		// Put setup code here. This method is called before the invocation of each test method in the class.
+	}
+	
+	override func tearDown() {
+		// Put teardown code here. This method is called after the invocation of each test method in the class.
 		OHHTTPStubs.removeAllStubs()
-        super.tearDown()
-    }
+		super.tearDown()
+	}
 	
 	func testBaseUrl() {
 		XCTAssertEqual(Remote.baseUrlString(), "http://api.app.kllect.com/")
 	}
 	
-	func testGetTagsValidEmpty() {
+	func testGetPageValidEmpty() {
 		stub(condition: isHost("api.app.kllect.com")) { _ in
-			let stubPath = OHPathForFile("getTagsValidEmpty.json", type(of: self))
+			let stubPath = OHPathForFile("getPageValidEmpty.json", type(of: self))
 			return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type" as NSObject:"application/json" as AnyObject])
 		}
 		
-		let expectation = self.expectation(description: "Get Tags Valid Empty")
+		let expectation = self.expectation(description: "Get Page Valid Empty")
 		
-		let future = Remote.getTags()
+		let future = Remote.getVideosForPage(url: URL(string: Remote.baseUrlString().appending("/articles/tag/Test"))!)
 		future.onComplete { response in
 			XCTAssertNotNil(response)
 			XCTAssertNotNil(response.value)
 			XCTAssertNil(response.error)
-			XCTAssertEqual(response.value!.count, 0)
-			expectation.fulfill()
-		}
-		
-		waitForExpectations(timeout: 2.0) { _ in
-		}
-
-	}
-    
-	func testGetTagsValid() {
-		
-		stub(condition: isHost("api.app.kllect.com")) { _ in
-			let stubPath = OHPathForFile("getTagsValid.json", type(of: self))
-			return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type" as NSObject:"application/json" as AnyObject])
-		}
-		
-		let expectation = self.expectation(description: "Get Tags Valid")
-		
-		let future = Remote.getTags()
-		future.onComplete { response in
-			XCTAssertNotNil(response)
-			XCTAssertNotNil(response.value)
-			XCTAssertGreaterThan(response.value!.count, 0)
+			XCTAssertEqual(response.value!.articleCount, 0)
 			expectation.fulfill()
 		}
 		
@@ -73,16 +51,38 @@ class RemoteTests: XCTestCase {
 		
 	}
 	
-	func testGetTagsNotJSON() {
+	func testGetPageValid() {
+		
+		stub(condition: isHost("api.app.kllect.com")) { _ in
+			let stubPath = OHPathForFile("getPageValid.json", type(of: self))
+			return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type" as NSObject:"application/json" as AnyObject])
+		}
+		
+		let expectation = self.expectation(description: "Get Page Valid")
+		
+		let future = Remote.getVideosForPage(url: URL(string: Remote.baseUrlString().appending("/articles/tag/Test"))!)
+		future.onComplete { response in
+			XCTAssertNotNil(response)
+			XCTAssertNotNil(response.value)
+			XCTAssertGreaterThan(response.value!.articleCount, 0)
+			expectation.fulfill()
+		}
+		
+		waitForExpectations(timeout: 2.0) { _ in
+		}
+		
+	}
+	
+	func testGetPageNotJSON() {
 		
 		stub(condition: isHost("api.app.kllect.com")) { _ in
 			let stubPath = OHPathForFile("getTagsNotJSON.html", type(of: self))
 			return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type" as NSObject:"text/html" as AnyObject])
 		}
 		
-		let expectation = self.expectation(description: "Get Tags Not JSON")
+		let expectation = self.expectation(description: "Get Page Not JSON")
 		
-		let future = Remote.getTags()
+		let future = Remote.getVideosForPage(url: URL(string: Remote.baseUrlString().appending("/articles/tag/Test"))!)
 		future.onComplete { response in
 			XCTAssertNotNil(response)
 			XCTAssertNotNil(response.error)
@@ -101,16 +101,16 @@ class RemoteTests: XCTestCase {
 		
 	}
 	
-	func testGetTagsNetworkError() {
+	func testGetPageNetworkError() {
 		
 		stub(condition: isHost("api.app.kllect.com")) { _ in
 			let notConnectedError = NSError(domain: NSURLErrorDomain, code: Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo: nil)
 			return OHHTTPStubsResponse(error: notConnectedError)
 		}
 		
-		let expectation = self.expectation(description: "Get Tags Network Error")
+		let expectation = self.expectation(description: "Get Page Network Error")
 		
-		let future = Remote.getTags()
+		let future = Remote.getVideosForPage(url: URL(string: Remote.baseUrlString().appending("/articles/tag/Test"))!)
 		future.onComplete { response in
 			XCTAssertNotNil(response)
 			XCTAssertNotNil(response.error)
