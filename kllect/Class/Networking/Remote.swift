@@ -83,7 +83,7 @@ class Remote {
 					complete(.failure(.malformedType))
 					return
 				}
-				log.debug("Successfully retrieved Page: \(page)")
+				log.debug("Successfully retrieved Tags: \(tags)")
 				complete(.success(tags))
 			}
 			task.resume()
