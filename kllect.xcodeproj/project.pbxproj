@@ -27,6 +27,7 @@
 		2F8B46611DC96CAF00A6A0C0 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B465F1DC96CAF00A6A0C0 /* HeaderTableViewCell.swift */; };
 		2F8B46621DC96CAF00A6A0C0 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B46601DC96CAF00A6A0C0 /* VideoTableViewCell.swift */; };
 		2F8B46651DC96D1D00A6A0C0 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B46641DC96D1D00A6A0C0 /* Entities.swift */; };
+		2F8B466D1DC96FCA00A6A0C0 /* kllectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B466C1DC96FCA00A6A0C0 /* kllectTests.swift */; };
 		2F8C0E431D7FB6F4006D000F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8C0E421D7FB6F4006D000F /* WebKit.framework */; };
 		2FC0825B1DC4195400E70585 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0825A1DC4195400E70585 /* LoginViewController.swift */; };
 		2FC0825D1DC420C900E70585 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0825C1DC420C900E70585 /* InterestsViewController.swift */; };
@@ -52,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2F8B466F1DC96FCA00A6A0C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6E831861CF3519300AA5249 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6E8318D1CF3519300AA5249;
+			remoteInfo = kllect;
+		};
 		E6E831A31CF3519300AA5249 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E6E831861CF3519300AA5249 /* Project object */;
@@ -84,6 +92,9 @@
 		2F8B465F1DC96CAF00A6A0C0 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		2F8B46601DC96CAF00A6A0C0 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		2F8B46641DC96D1D00A6A0C0 /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		2F8B466A1DC96FCA00A6A0C0 /* kllectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kllectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F8B466C1DC96FCA00A6A0C0 /* kllectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kllectTests.swift; sourceTree = "<group>"; };
+		2F8B466E1DC96FCA00A6A0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F8C0E421D7FB6F4006D000F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2FC0825A1DC4195400E70585 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2FC0825C1DC420C900E70585 /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +133,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2F8B46671DC96FCA00A6A0C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6E8318B1CF3519300AA5249 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -199,6 +217,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2F8B466B1DC96FCA00A6A0C0 /* kllectTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B466C1DC96FCA00A6A0C0 /* kllectTests.swift */,
+				2F8B466E1DC96FCA00A6A0C0 /* Info.plist */,
+			);
+			path = kllectTests;
+			sourceTree = "<group>";
+		};
 		4D0D16D2B036868E089DC422 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +254,7 @@
 				E6E8320C1CF35AF300AA5249 /* UIKit.framework */,
 				E6E831901CF3519300AA5249 /* kllect */,
 				E6E831A51CF3519300AA5249 /* kllectUITests */,
+				2F8B466B1DC96FCA00A6A0C0 /* kllectTests */,
 				E6E8318F1CF3519300AA5249 /* Products */,
 				4D0D16D2B036868E089DC422 /* Frameworks */,
 				FD21634A5500B08287436939 /* Pods */,
@@ -238,6 +266,7 @@
 			children = (
 				E6E8318E1CF3519300AA5249 /* kllect.app */,
 				E6E831A21CF3519300AA5249 /* kllectUITests.xctest */,
+				2F8B466A1DC96FCA00A6A0C0 /* kllectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,6 +376,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2F8B46691DC96FCA00A6A0C0 /* kllectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F8B46711DC96FCA00A6A0C0 /* Build configuration list for PBXNativeTarget "kllectTests" */;
+			buildPhases = (
+				2F8B46661DC96FCA00A6A0C0 /* Sources */,
+				2F8B46671DC96FCA00A6A0C0 /* Frameworks */,
+				2F8B46681DC96FCA00A6A0C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F8B46701DC96FCA00A6A0C0 /* PBXTargetDependency */,
+			);
+			name = kllectTests;
+			productName = kllectTests;
+			productReference = 2F8B466A1DC96FCA00A6A0C0 /* kllectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E6E8318D1CF3519300AA5249 /* kllect */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6E831AB1CF3519300AA5249 /* Build configuration list for PBXNativeTarget "kllect" */;
@@ -395,10 +442,16 @@
 		E6E831861CF3519300AA5249 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = Kllect;
+				ORGANIZATIONNAME = "Kllect Inc.";
 				TargetAttributes = {
+					2F8B46691DC96FCA00A6A0C0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 3X668D8QNC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E6E8318D1CF3519300AA5249;
+					};
 					E6E8318D1CF3519300AA5249 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 3X668D8QNC;
@@ -428,11 +481,19 @@
 			targets = (
 				E6E8318D1CF3519300AA5249 /* kllect */,
 				E6E831A11CF3519300AA5249 /* kllectUITests */,
+				2F8B46691DC96FCA00A6A0C0 /* kllectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2F8B46681DC96FCA00A6A0C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6E8318C1CF3519300AA5249 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,6 +633,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2F8B46661DC96FCA00A6A0C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F8B466D1DC96FCA00A6A0C0 /* kllectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6E8318A1CF3519300AA5249 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -610,6 +679,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2F8B46701DC96FCA00A6A0C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6E8318D1CF3519300AA5249 /* kllect */;
+			targetProxy = 2F8B466F1DC96FCA00A6A0C0 /* PBXContainerItemProxy */;
+		};
 		E6E831A41CF3519300AA5249 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E6E8318D1CF3519300AA5249 /* kllect */;
@@ -637,6 +711,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2F8B46721DC96FCA00A6A0C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 3X668D8QNC;
+				INFOPLIST_FILE = kllectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kllect.videoapp.kllectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kllect.app/kllect";
+			};
+			name = Debug;
+		};
+		2F8B46731DC96FCA00A6A0C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 3X668D8QNC;
+				INFOPLIST_FILE = kllectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kllect.videoapp.kllectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kllect.app/kllect";
+			};
+			name = Release;
+		};
 		E6E831A91CF3519300AA5249 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -791,6 +903,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2F8B46711DC96FCA00A6A0C0 /* Build configuration list for PBXNativeTarget "kllectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F8B46721DC96FCA00A6A0C0 /* Debug */,
+				2F8B46731DC96FCA00A6A0C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E6E831891CF3519300AA5249 /* Build configuration list for PBXProject "kllect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
