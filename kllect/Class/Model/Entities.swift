@@ -14,6 +14,12 @@ typealias TagName = String
 class Tag: Mappable {
 	var tagName: String!
 	
+	var displayName: String {
+		get {
+			return self.tagName.replacingOccurrences(of: "_", with: " ").capitalized
+		}
+	}
+	
 	required init?(map: Map) {
 		
 	}
@@ -21,6 +27,7 @@ class Tag: Mappable {
 	func mapping(map: Map) {
 		self.tagName <- map["tagName"]
 	}
+	
 }
 
 class Page: Mappable {
