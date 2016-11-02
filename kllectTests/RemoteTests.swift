@@ -129,32 +129,4 @@ class RemoteTests: XCTestCase {
 		
 	}
 	
-//	func testGetTagsNotStringConvertable() {
-//		
-//		stub(condition: isHost("api.app.kllect.com")) { _ in
-//			let data = Data()
-//			return OHHTTPStubsResponse(data: data, statusCode: 200, headers: nil)
-//		}
-//		
-//		let expectation = self.expectation(description: "Get Tags Network Error")
-//		
-//		let future = Remote.getTags()
-//		future.onComplete { response in
-//			XCTAssertNotNil(response)
-//			XCTAssertNotNil(response.error)
-//			XCTAssertNil(response.value)
-//			switch response.error! {
-//			case .notStringConvertable:
-//				break
-//			default:
-//				XCTFail("Not correct error type")
-//			}
-//			expectation.fulfill()
-//		}
-//		
-//		waitForExpectations(timeout: 2.0) { _ in
-//		}
-//		
-//	}
-	
 }

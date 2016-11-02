@@ -3,7 +3,7 @@
 //  kllect
 //
 //  Created by Christopher Primerano on 2016-10-12.
-//  Copyright © 2016 topmobile. All rights reserved.
+//  Copyright © 2016 Kllect Inc. All rights reserved.
 //
 
 import Foundation

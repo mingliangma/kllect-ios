@@ -3,7 +3,7 @@
 //  kllect
 //
 //  Created by Christopher Primerano on 2016-11-01.
-//  Copyright © 2016 Kllect. All rights reserved.
+//  Copyright © 2016 Kllect Inc. All rights reserved.
 //
 
 import Foundation

@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  kllect
 //
-//  Created by Michal Solowow on 5/23/16.
-//  Copyright © 2016 topmobile. All rights reserved.
+//  Created by Christopher Primerano on 2016-10-02.
+//  Copyright © 2016 Kllect Inc. All rights reserved.
 //
 
 import UIKit
