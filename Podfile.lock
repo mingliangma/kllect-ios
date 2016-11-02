@@ -1,12 +1,16 @@
 PODS:
+  - BrightFutures (5.0.1):
+    - Result (~> 3.0)
   - Crashlytics (3.8.2):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.9)
   - Kingfisher (3.1.0)
   - ObjectMapper (2.0.0)
+  - Result (3.0.0)
   - SDVersion (3.6)
 
 DEPENDENCIES:
+  - BrightFutures
   - Crashlytics
   - Fabric
   - Kingfisher (~> 3.0)
@@ -14,12 +18,14 @@ DEPENDENCIES:
   - SDVersion
 
 SPEC CHECKSUMS:
+  BrightFutures: 72fbc51227fa912ccdd5af04f2f6cea0b2d401a6
   Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   Kingfisher: 7779f22e977393e9533a89a9685beb8f679d3767
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   SDVersion: 43383b6ac05462c973c3fd92d9748c74e360aba5
 
-PODFILE CHECKSUM: c7d3124d43f94168e01b29828869a1279eba21c8
+PODFILE CHECKSUM: a30ed0ecb0048ff22c16a38026fb773bf6373648
 
 COCOAPODS: 1.1.0.rc.2
