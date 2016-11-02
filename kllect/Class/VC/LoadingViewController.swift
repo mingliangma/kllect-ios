@@ -16,6 +16,7 @@ class LoadingViewController: UIViewController {
 	private var progressTimer: Timer?
 	
 	override func viewDidAppear(_ animated: Bool) {
+		// Create a timer to advance the progress bar simulating a network call/processing for now until implemented
 		self.progressTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(LoadingViewController.updateProgressBar(sender:)), userInfo: nil, repeats: true)
 	}
 	

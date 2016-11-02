@@ -26,23 +26,14 @@ class InterestsViewController: UIViewController, UICollectionViewDelegate, UICol
 		}
 	}
 	
+	// MARK: - UIView
+	
 	override func viewWillAppear(_ animated: Bool) {
 		self.getTags()
 		self.collectionView.allowsMultipleSelection = true
 	}
 	
-	func getTags() {
-		
-		let future = Remote.getTags()
-		
-		future.onComplete { response in
-			guard let tags = response.value else {
-				// didn't get tags
-				return
-			}
-			self.tags = tags
-		}
-	}
+	// Mark: - Collection View Delegate/Data Source
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
@@ -55,6 +46,7 @@ class InterestsViewController: UIViewController, UICollectionViewDelegate, UICol
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionCell", for: indexPath)
 		
+		// Set style of collection view cell
 		let layer = cell.contentView.layer
 		layer.borderColor = UIColor.black.cgColor
 		layer.borderWidth = 0.5
@@ -71,6 +63,8 @@ class InterestsViewController: UIViewController, UICollectionViewDelegate, UICol
 		return cell
 	}
 	
+	
+	// Add and remove color from selected/deselected cells
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let cell = collectionView.cellForItem(at: indexPath)
 		cell?.contentView.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
@@ -89,5 +83,21 @@ class InterestsViewController: UIViewController, UICollectionViewDelegate, UICol
 		let size = CGSize(width: label.bounds.size.width + 20, height: label.bounds.size.height + 20)
 		return size
 	}
+	
+	// MARK: - Tags
+	
+	func getTags() {
+		
+		let future = Remote.getTags()
+		
+		future.onComplete { response in
+			guard let tags = response.value else {
+				// didn't get tags
+				return
+			}
+			self.tags = tags
+		}
+	}
+
 
 }
