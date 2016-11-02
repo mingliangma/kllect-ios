@@ -8,6 +8,7 @@
 
 import Foundation
 
+// addition function for CGPoint adds x's together and adds y's together
 func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
 	return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 }
