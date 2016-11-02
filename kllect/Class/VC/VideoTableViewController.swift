@@ -148,6 +148,7 @@ class VideoTableViewController: UIViewController, UITableViewDelegate, UITableVi
 		} else if indexPath.row < self.articles.count - 1 {
 			return 303 + ipadAddition
 		} else {
+			// Last cell has extra height to show above drawer
 			return 371 + ipadAddition
 		}
 	}

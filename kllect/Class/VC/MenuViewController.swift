@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import XCGLogger
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PulleyDelegate {
 	
@@ -26,6 +27,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	}
 	
 	private var selectedIndex: IndexPath?
+	
+	// MARK: - UIView
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +48,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			self.drawArrow(view: self.arrowIcon, drawerPosition: drawer.drawerPosition)
 		}
 	}
+	
+	// MARK: - Table View Delegate/Data Source
     
 	func numberOfSections(in tableView: UITableView) -> Int {
+		// First section for Header cell
 		return 2
 	}
 	
@@ -101,37 +107,41 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let tag = self.tags[indexPath.row]
+		// Post a notification to tell Video Table View to load new tag
 		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowVideosForTag"), object: nil, userInfo: ["Tag": tag])
+		
 		self.tableView.deselectRow(at: indexPath, animated: false)
+		
+		// remove checkmark icon on previously selected row
 		if let index = self.selectedIndex {
 			self.tableView.cellForRow(at: index)?.accessoryType = .none
 		}
+		
 		self.selectedIndex = indexPath
+		
+		// set checkmark icon on currently selected row
+		// Checkmark icon like this will be changing when design decides on final icon
 		self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+		
+		// close the drawer
 		if let drawer = self.parent as? PulleyViewController {
 			drawer.setDrawerPosition(position: .collapsed, animated: true)
 		}
 	}
 	
-	func getTags() {
-		let future = Remote.getTags()
-		
-		future.onComplete { response in
-			guard let tags = response.value else {
-				// did get tags
-				return
-			}
-			self.tags.replaceSubrange(self.tags.startIndex..<self.tags.endIndex, with: tags)
-			DispatchQueue.main.async {
-				self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
-			}
-		}
-	}
+	// MARK: - Pulley Delegate
 	
 	func drawerPositionDidChange(drawer: PulleyViewController) {
 		self.drawArrow(view: self.arrowIcon, drawerPosition: drawer.drawerPosition)
 	}
 	
+	// MARK: - Draw Arrow for menu bar
+	
+	
+	/// Draw an arrow based on the position of the drawer
+	///
+	/// - parameter view:           The view to draw the arrow in
+	/// - parameter drawerPosition: The position of the drawer to determine arrow direction
 	func drawArrow(view: UIView, drawerPosition: PulleyPosition) {
 		view.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
 		
@@ -192,6 +202,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		return path
 	}
 	
+	// MARK: - Tap Gesture Recognizer Handler
+	
 	@IBAction func handleTapGesture(_ sender: UITapGestureRecognizer) {
 		let location = sender.location(in: self.view)
 		
@@ -199,13 +211,33 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			return
 		}
 		
+		// Change the position of the menu pulley when header is tapped
+		
 		switch parent.drawerPosition {
 		case .open:
 			parent.setDrawerPosition(position: .collapsed, animated: true)
 		case .partiallyRevealed:
+			// This position was removed by us, but we handle it just in case
 			parent.setDrawerPosition(position: .open, animated: true)
 		case .collapsed:
 			parent.setDrawerPosition(position: .open, animated: true)
+		}
+	}
+	
+	// MARK: - Tags
+	
+	func getTags() {
+		let future = Remote.getTags()
+		
+		future.onComplete { response in
+			guard let tags = response.value else {
+				log.error("Didn't receive tags from the API")
+				return
+			}
+			self.tags.replaceSubrange(self.tags.startIndex..<self.tags.endIndex, with: tags)
+			DispatchQueue.main.async {
+				self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
+			}
 		}
 	}
 		
