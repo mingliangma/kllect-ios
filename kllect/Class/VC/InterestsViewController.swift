@@ -87,7 +87,6 @@ class InterestsViewController: UIViewController, UICollectionViewDelegate, UICol
 		label.font = UIFont(name: "Colfax-Regular", size: 18)
 		label.sizeToFit()
 		let size = CGSize(width: label.bounds.size.width + 20, height: label.bounds.size.height + 20)
-		print(size)
 		return size
 	}
 

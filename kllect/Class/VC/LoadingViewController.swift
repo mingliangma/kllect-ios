@@ -17,7 +17,6 @@ class LoadingViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		self.progressTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(LoadingViewController.updateProgressBar(sender:)), userInfo: nil, repeats: true)
-//		self.progressTimer = Timer(timeInterval: 0.05, target: self, selector: #selector(LoadingViewController.updateProgressBar), userInfo: nil, repeats: true)
 	}
 	
 	func updateProgressBar(sender: Timer) {

@@ -17,6 +17,10 @@ class Remote {
 		return "http://api.app.kllect.com/"
 	}
 	
+	class func youtubeBaseUrlString() -> String {
+		return "https://www.youtube.com/embed/"
+	}
+	
 	class func getVideosForPage(url: URL) -> Future<Page, KCTError> {
 		
 		return Future { complete in
