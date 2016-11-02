@@ -1,5 +1,5 @@
 app_identifier "com.kllect.videoapp" # The bundle identifier of your app
-apple_id "cprimera@mac.com" # Your Apple email address
+apple_id "<Insert appleid email>" # Your Apple email address
 
 team_id "3X668D8QNC"  # Developer Portal Team ID
 

@@ -17,7 +17,6 @@ default_platform :ios
 
 platform :ios do
 	before_all do
-		# ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
 		ascii_art(image_path: 'kllect/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png', width: 60)
 		cocoapods
 	end
@@ -56,20 +55,6 @@ platform :ios do
 		rocket
 	end
 
-	after_all do |lane|
-		# This block is called, only if the executed lane was successful
-
-		# slack(
-		#	 message: "Successfully deployed new App Update."
-		# )
-	end
-
-	error do |lane, exception|
-		# slack(
-		#	 message: exception.message,
-		#	 success: false
-		# )
-	end
 end
 
 

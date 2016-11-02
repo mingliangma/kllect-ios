@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import XCGLogger
 import Fabric
 import Crashlytics
+
+let log = XCGLogger.default
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		Fabric.with([Crashlytics.self])
 		UIApplication.shared.setStatusBarStyle(.default, animated: false)
+		log.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true)
         return true
     }
 

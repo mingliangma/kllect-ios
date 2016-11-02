@@ -5,6 +5,7 @@ inhibit_all_warnings!
 def shared_pods
 	pod 'Kingfisher', '~> 3.0'
 	pod 'ObjectMapper', '~> 2.0'
+	pod 'XCGLogger', '~> 4.0.0'
 	pod 'BrightFutures'
 	pod 'SDVersion'
 	pod 'Fabric'
