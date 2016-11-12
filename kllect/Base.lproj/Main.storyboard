@@ -507,7 +507,7 @@
                             <constraint firstAttribute="trailing" secondItem="2Hl-2N-3yl" secondAttribute="trailing" constant="20" symbolic="YES" id="1kO-rK-H09"/>
                             <constraint firstItem="O13-Az-orT" firstAttribute="top" secondItem="dxq-Py-Ztt" secondAttribute="bottom" constant="14" id="2gO-qe-hAn"/>
                             <constraint firstAttribute="trailing" secondItem="QHZ-3f-LGu" secondAttribute="trailing" id="MnD-gQ-dke"/>
-                            <constraint firstItem="O13-Az-orT" firstAttribute="top" secondItem="nUT-ev-pAc" secondAttribute="bottom" constant="68" id="WWW-3e-n0K"/>
+                            <constraint firstItem="O13-Az-orT" firstAttribute="top" secondItem="nUT-ev-pAc" secondAttribute="bottom" constant="48" id="WWW-3e-n0K"/>
                             <constraint firstItem="2Hl-2N-3yl" firstAttribute="bottom" secondItem="dxq-Py-Ztt" secondAttribute="bottom" id="aIZ-Fx-xMh"/>
                             <constraint firstAttribute="trailing" secondItem="O13-Az-orT" secondAttribute="trailing" id="bgu-ag-D2t"/>
                             <constraint firstItem="QHZ-3f-LGu" firstAttribute="leading" secondItem="fX4-Lz-OBa" secondAttribute="leading" id="cyF-MN-Ovp"/>
