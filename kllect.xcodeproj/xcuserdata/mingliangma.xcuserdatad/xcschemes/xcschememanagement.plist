@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>kllect.xcscheme</key>
+		<key>Kllect.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E6E8318D1CF3519300AA5249</key>
+		<key>4D7FF0D21DF73FF6008446B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6E831A11CF3519300AA5249</key>
+		<key>4D7FF0E61DF73FF6008446B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4D7FF0F11DF73FF6008446B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

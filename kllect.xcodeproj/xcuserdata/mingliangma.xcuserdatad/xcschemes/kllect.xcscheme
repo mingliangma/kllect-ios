@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6E8318D1CF3519300AA5249"
-               BuildableName = "kllect.app"
-               BlueprintName = "kllect"
-               ReferencedContainer = "container:kllect.xcodeproj">
+               BlueprintIdentifier = "4D7FF0D21DF73FF6008446B3"
+               BuildableName = "Kllect.app"
+               BlueprintName = "Kllect"
+               ReferencedContainer = "container:Kllect.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6E831A11CF3519300AA5249"
-               BuildableName = "kllectUITests.xctest"
-               BlueprintName = "kllectUITests"
-               ReferencedContainer = "container:kllect.xcodeproj">
+               BlueprintIdentifier = "4D7FF0E61DF73FF6008446B3"
+               BuildableName = "KllectTests.xctest"
+               BlueprintName = "KllectTests"
+               ReferencedContainer = "container:Kllect.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4D7FF0F11DF73FF6008446B3"
+               BuildableName = "KllectUITests.xctest"
+               BlueprintName = "KllectUITests"
+               ReferencedContainer = "container:Kllect.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6E8318D1CF3519300AA5249"
-            BuildableName = "kllect.app"
-            BlueprintName = "kllect"
-            ReferencedContainer = "container:kllect.xcodeproj">
+            BlueprintIdentifier = "4D7FF0D21DF73FF6008446B3"
+            BuildableName = "Kllect.app"
+            BlueprintName = "Kllect"
+            ReferencedContainer = "container:Kllect.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6E8318D1CF3519300AA5249"
-            BuildableName = "kllect.app"
-            BlueprintName = "kllect"
-            ReferencedContainer = "container:kllect.xcodeproj">
+            BlueprintIdentifier = "4D7FF0D21DF73FF6008446B3"
+            BuildableName = "Kllect.app"
+            BlueprintName = "Kllect"
+            ReferencedContainer = "container:Kllect.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -84,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6E8318D1CF3519300AA5249"
-            BuildableName = "kllect.app"
-            BlueprintName = "kllect"
-            ReferencedContainer = "container:kllect.xcodeproj">
+            BlueprintIdentifier = "4D7FF0D21DF73FF6008446B3"
+            BuildableName = "Kllect.app"
+            BlueprintName = "Kllect"
+            ReferencedContainer = "container:Kllect.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

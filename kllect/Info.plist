@@ -16,14 +16,21 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb321644244894283</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>17</string>
+	<string>11</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
-		<string>d885192ee64692e1382a243d34f9949a3d9252e1</string>
+		<string>YOUR_FABRIC_API_KEY</string>
 		<key>Kits</key>
 		<array>
 			<dict>
@@ -32,47 +39,40 @@
 				<key>KitName</key>
 				<string>Crashlytics</string>
 			</dict>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Answers</string>
-			</dict>
 		</array>
 	</dict>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
+	<key>FacebookAppID</key>
+	<string>321644244894283</string>
+	<key>FacebookDisplayName</key>
+	<string>Kllect</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Colfax-Black.otf</string>
-		<string>Colfax-BlackItalic.otf</string>
-		<string>Colfax-Bold.otf</string>
-		<string>Colfax-BoldItalic.otf</string>
-		<string>Colfax-Light.otf</string>
-		<string>Colfax-LightItalic.otf</string>
-		<string>Colfax-Medium.otf</string>
-		<string>Colfax-MediumItalic.otf</string>
-		<string>Colfax-Regular.otf</string>
-		<string>Colfax-RegularItalic.otf</string>
-		<string>Colfax-Thin.otf</string>
-		<string>Colfax-ThinItalic.otf</string>
-	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

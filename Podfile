@@ -1,23 +1,18 @@
-platform :ios, '8.0'
-use_frameworks!
-inhibit_all_warnings!
+source 'https://github.com/CocoaPods/Specs.git'
 
-def shared_pods
-	pod 'Kingfisher', '~> 3.0'
-	pod 'ObjectMapper', '~> 2.0'
-	pod 'XCGLogger', '~> 4.0.0'
-	pod 'BrightFutures'
-	pod 'SDVersion'
+platform :ios, '9.0'
+use_frameworks!
+
+target 'Kllect' do
 	pod 'Fabric'
 	pod 'Crashlytics'
-end
-
-target 'kllect' do
-	shared_pods
-end
-
-target 'kllectTests' do
-	shared_pods
-	pod 'OHHTTPStubs'
-	pod 'OHHTTPStubs/Swift'
+	pod 'SDWebImage'
+	pod 'SVProgressHUD'
+	pod 'Firebase/Core'
+	pod 'Firebase/Auth'
+	pod 'FBSDKCoreKit'
+	pod 'FBSDKLoginKit'
+	pod 'Alamofire'
+	pod 'youtube-ios-player-helper'
+	pod 'Mixpanel'
 end
