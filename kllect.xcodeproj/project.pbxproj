@@ -760,7 +760,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arthur Belair (XX3YVLD32L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mingliang Ma (JNSN46X7C7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3X668D8QNC;
 				INFOPLIST_FILE = Kllect/Info.plist;
@@ -781,7 +781,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Guarana Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mingliang Ma (JNSN46X7C7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3X668D8QNC;
 				INFOPLIST_FILE = Kllect/Info.plist;
@@ -903,7 +903,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Guarana Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mingliang Ma (JNSN46X7C7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3X668D8QNC;
 				INFOPLIST_FILE = Kllect/Info.plist;
